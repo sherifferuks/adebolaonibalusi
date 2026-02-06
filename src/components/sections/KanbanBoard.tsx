@@ -38,7 +38,7 @@ export const KanbanBoard: React.FC = () => {
             {/* Column: To Do */}
             <BoardColumn
                 title="To Do"
-                icon={<Plus size={18} className="text-accent" />}
+                icon={<Plus size={16} className="text-white" />}
                 tasks={getTasksByStatus('todo')}
                 onUpdateTask={(id) => updateTaskStatus(id, 'progress')}
             />
@@ -46,7 +46,7 @@ export const KanbanBoard: React.FC = () => {
             {/* Column: In Progress */}
             <BoardColumn
                 title="In Progress"
-                icon={<Clock size={18} className="text-teal" />}
+                icon={<Clock size={16} className="text-white" />}
                 tasks={getTasksByStatus('progress')}
                 onUpdateTask={(id) => updateTaskStatus(id, 'done')}
             />
@@ -54,7 +54,7 @@ export const KanbanBoard: React.FC = () => {
             {/* Column: Done */}
             <BoardColumn
                 title="Completed"
-                icon={<CheckCircle2 size={18} className="text-stone" />}
+                icon={<CheckCircle2 size={16} className="text-white" />}
                 tasks={getTasksByStatus('done')}
                 onUpdateTask={() => { }} // No next status
             />
@@ -72,12 +72,12 @@ const BoardColumn = ({ title, tasks, icon, onUpdateTask }: {
         <div className="space-y-6">
             <div className="flex items-center justify-between px-2">
                 <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                         {icon}
                     </div>
-                    <h3 className="font-bold text-charcoal tracking-wide">{title}</h3>
+                    <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">{title}</h3>
                 </div>
-                <span className="text-xs font-bold text-stone bg-stone/5 px-2 py-0.5 rounded-full">{tasks.length}</span>
+                <span className="text-[10px] font-bold text-white/30 bg-white/5 px-2 py-0.5 rounded-full">{tasks.length}</span>
             </div>
 
             <div className="space-y-4">
@@ -85,38 +85,38 @@ const BoardColumn = ({ title, tasks, icon, onUpdateTask }: {
                     <motion.div
                         key={task.id}
                         layoutId={task.id}
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="bg-white p-6 rounded-2xl shadow-sm border border-stone/5 space-y-4 group cursor-pointer hover:shadow-md transition-shadow"
+                        className="bg-surface border border-white/5 p-6 rounded-[2rem] space-y-4 group cursor-pointer hover:border-white/20 transition-all shadow-2xl"
                         onClick={() => onUpdateTask(task.id)}
                     >
                         <div className="flex items-start justify-between">
                             <span className={cn(
-                                "text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-md",
-                                task.priority === 'High' ? "bg-accent/10 text-accent" :
-                                    task.priority === 'Medium' ? "bg-teal/10 text-teal" : "bg-stone/10 text-stone"
+                                "text-[9px] uppercase tracking-[0.15em] font-bold border px-2 py-0.5 rounded-full",
+                                task.priority === 'High' ? "border-white/20 text-white" :
+                                    task.priority === 'Medium' ? "border-white/5 text-white/60" : "border-white/5 text-white/30"
                             )}>
                                 {task.priority} Priority
                             </span>
-                            <button className="text-stone opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Task options">
+                            <button className="text-white/30 opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Task options">
                                 <MoreVertical size={16} />
                             </button>
                         </div>
-                        <p className="font-serif font-bold text-charcoal leading-snug">{task.title}</p>
+                        <p className="font-serif text-lg text-white leading-snug">{task.title}</p>
                         <div className="flex items-center justify-between pt-2">
-                            <div className="flex items-center gap-2">
-                                <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-[10px] font-bold text-accent">
+                            <div className="flex items-center gap-3">
+                                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[9px] font-bold text-white">
                                     {task.assignee.split(' ').map(n => n[0]).join('')}
                                 </div>
-                                <span className="text-xs font-medium text-stone">{task.assignee}</span>
+                                <span className="text-[11px] font-medium text-white/50 tracking-wide">{task.assignee}</span>
                             </div>
-                            <span className="text-[10px] text-stone font-bold uppercase tracking-tighter">Due in 2 days</span>
+                            <span className="text-[9px] text-white/20 font-bold uppercase tracking-widest">Due +2d</span>
                         </div>
                     </motion.div>
                 ))}
                 {tasks.length === 0 && (
-                    <div className="h-32 border-2 border-dashed border-stone/10 rounded-2xl flex items-center justify-center text-stone text-sm font-medium">
-                        Empty
+                    <div className="h-40 border border-dashed border-white/5 rounded-[2rem] flex items-center justify-center text-white/10 text-xs font-bold uppercase tracking-[0.2em]">
+                        No Tasks
                     </div>
                 )}
             </div>

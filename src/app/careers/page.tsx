@@ -5,44 +5,46 @@ import { JobApplicationForm } from '@/components/sections/JobApplicationForm';
 
 export default function CareersPage() {
     return (
-        <div className="bg-cream min-h-screen pt-32 pb-24">
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div className="bg-light min-h-screen pt-48 pb-24 selection:bg-dark selection:text-white">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
                     {/* Left Side: Copy */}
-                    <div className="space-y-10 animate-fade-in group">
+                    <div className="space-y-12 animate-fade-in group">
                         <div className="space-y-6">
-                            <h2 className="text-sm uppercase tracking-[0.3em] font-bold text-stone">
-                                Join our elite team
-                            </h2>
-                            <h1 className="text-5xl md:text-6xl font-serif font-bold text-charcoal leading-tight">
-                                Help Us Define the <br />
-                                <span className="text-accent underline decoration-stone/20 decoration-8 underline-offset-8">Future of Law.</span>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-dark/10 bg-dark/5">
+                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-dark/40">Join our elite team</span>
+                            </div>
+                            <h1 className="text-5xl md:text-7xl font-serif font-medium text-dark leading-[1.1] tracking-tight">
+                                Help Us Define <br />
+                                <span className="italic">the Future of Law</span>
                             </h1>
-                            <p className="text-xl text-charcoal/70 leading-relaxed font-sans max-w-xl">
+                            <p className="text-xl text-dark/60 leading-relaxed font-medium max-w-xl">
                                 We are looking for exceptional minds to join our Lagos and London offices. Whether you&apos;re an established practitioner or a brilliant researcher, we have a place for you.
                             </p>
                         </div>
 
-                        <div className="space-y-8 pt-8 border-t border-stone/20">
-                            <div className="flex gap-6">
-                                <div className="text-accent font-serif text-4xl font-bold">01.</div>
-                                <div className="space-y-2">
-                                    <h3 className="text-xl font-bold text-charcoal">Innovation First</h3>
-                                    <p className="text-stone">We use AI-driven research and automation to empower our lawyers, not replace them.</p>
+                        <div className="space-y-10 pt-10 border-t border-dark/10">
+                            <div className="flex gap-8">
+                                <div className="text-dark/20 font-serif text-4xl font-medium">01</div>
+                                <div className="space-y-3">
+                                    <h3 className="text-lg font-bold uppercase tracking-widest text-dark">Innovation First</h3>
+                                    <p className="text-dark/50 font-medium">We use AI-driven research and automation to empower our lawyers, not replace them.</p>
                                 </div>
                             </div>
-                            <div className="flex gap-6">
-                                <div className="text-accent font-serif text-4xl font-bold">02.</div>
-                                <div className="space-y-2">
-                                    <h3 className="text-xl font-bold text-charcoal">Global Reach</h3>
-                                    <p className="text-stone">Work on high-stakes international corporate disputes and transactions.</p>
+                            <div className="flex gap-8">
+                                <div className="text-dark/20 font-serif text-4xl font-medium">02</div>
+                                <div className="space-y-3">
+                                    <h3 className="text-lg font-bold uppercase tracking-widest text-dark">Global Reach</h3>
+                                    <p className="text-dark/50 font-medium">Work on high-stakes international corporate disputes and transactions.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Right Side: Form */}
-                    <JobApplicationForm />
+                    <div className="sticky top-40">
+                        <JobApplicationForm />
+                    </div>
                 </div>
             </div>
         </div>

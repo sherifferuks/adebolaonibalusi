@@ -3,105 +3,93 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { Menu, X } from 'lucide-react';
 
-function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-}
-
-const navItems = [
-    { name: 'Services', href: '#services', hasChildren: true },
-    { name: 'About', href: '#about' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Careers', href: '#careers' },
+const navLinks = [
+    { name: 'Features', href: '#features' },
+    { name: 'Practice Areas', href: '#services' },
+    { name: 'Insights', href: '#insights' },
+    { name: 'Careers', href: '/careers' },
 ];
 
 export const Navbar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
+        const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
-        <nav
-            className={cn(
-                "fixed top-0 w-full z-50 transition-all duration-300 px-6 md:px-12 py-4",
-                scrolled ? "bg-cream/90 backdrop-blur-md shadow-sm border-b border-stone/10" : "bg-transparent"
-            )}
-        >
-            <div className="max-w-7xl mx-auto flex items-center justify-between">
-                {/* Logo */}
-                <Link href="/" className="flex items-center gap-2">
-                    <span className="text-2xl font-serif font-bold tracking-tight text-charcoal">
-                        AO<span className="text-accent">&</span>Co.
-                    </span>
-                </Link>
-
-                {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-8">
-                    {navItems.map((item) => (
-                        <div key={item.name} className="relative group">
-                            <Link
-                                href={item.href}
-                                className="text-charcoal/80 hover:text-accent font-medium transition-colors flex items-center gap-1"
-                            >
-                                {item.name}
-                                {item.hasChildren && <ChevronDown size={14} />}
-                            </Link>
-                            {item.hasChildren && (
-                                <div className="absolute top-full -left-4 mt-2 w-48 bg-white shadow-xl rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-stone/5">
-                                    <div className="flex flex-col gap-1">
-                                        <Link href="#" className="px-4 py-2 hover:bg-cream rounded-lg text-sm transition-colors">Corporate Law</Link>
-                                        <Link href="#" className="px-4 py-2 hover:bg-cream rounded-lg text-sm transition-colors">Property Law</Link>
-                                        <Link href="#" className="px-4 py-2 hover:bg-cream rounded-lg text-sm transition-colors">Dispute Resolution</Link>
-                                    </div>
-                                </div>
-                            )}
+        <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'
+            }`}>
+            <div className="max-w-7xl mx-auto px-6">
+                <div className={`flex items-center justify-between bg-dark/40 backdrop-blur-xl border border-white/10 px-6 sm:px-8 py-3 rounded-full transition-all duration-500 ${isScrolled ? 'shadow-2xl' : ''
+                    }`}>
+                    {/* Logo */}
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center -rotate-6 group-hover:rotate-0 transition-transform">
+                            <span className="text-dark font-bold text-sm">AO</span>
                         </div>
-                    ))}
-                </div>
+                        <span className="text-xl font-bold tracking-tight text-white hidden sm:block">
+                            AO & Co.
+                        </span>
+                    </Link>
 
-                {/* Desktop Call to Action */}
-                <div className="hidden md:block">
-                    <Button size="sm">Contact Us</Button>
-                </div>
+                    {/* Desktop Navigation */}
+                    <nav className="hidden md:flex items-center gap-8">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className="text-[13px] font-medium text-white/70 hover:text-white transition-colors tracking-wide"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </nav>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    className="md:hidden text-charcoal p-2"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                    {/* Actions */}
+                    <div className="flex items-center gap-4">
+                        <Link href="/contact" className="hidden lg:block text-[13px] font-medium text-white/70 hover:text-white transition-colors tracking-wide">
+                            Contact
+                        </Link>
+                        <Button variant="primary" size="sm" className="hidden md:flex px-6 h-10 text-[13px]">
+                            Get started
+                        </Button>
+                        <button
+                            className="md:hidden text-white p-2"
+                            aria-label="Toggle menu"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
+                            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                        </button>
+                    </div>
+                </div>
             </div>
 
             {/* Mobile Menu */}
-            <div className={cn(
-                "md:hidden absolute top-full left-0 w-full bg-cream border-t border-stone/10 shadow-lg px-6 py-8 transition-all duration-300",
-                isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-4"
-            )}>
-                <div className="flex flex-col gap-6">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="text-xl font-medium text-charcoal hover:text-accent"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                    <Button className="w-full mt-4">Contact Us</Button>
+            {isMobileMenuOpen && (
+                <div className="md:hidden absolute top-full left-0 w-full px-6 pt-4">
+                    <div className="bg-dark/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 space-y-6 shadow-2xl animate-fade-in">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block text-xl font-medium text-white/70 hover:text-white transition-colors"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                        <div className="pt-6 border-t border-white/10">
+                            <Button className="w-full h-12">Get started</Button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            )}
+        </header>
     );
 };

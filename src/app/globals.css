@@ -1,41 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Palette */
-  --accent: #D9532A;           /* Burnt Sunrise */
-  --text-primary: #2E2C2D;     /* Charcoal */
-  --background: #F5EDE7;       /* Warm Cream */
-  --ui-surface: #8F8A88;       /* Stone Grey */
-  --accent-secondary: #1F6E78; /* Harbor Teal */
+  /* Hints.so Inspired Palette */
+  --background: #000000;
+  --foreground: #FFFFFF;
 
-  --foreground: var(--text-primary);
+  --surface-dark: #0D0D0E;
+  --surface-light: #FBFBFC;
+
+  --text-muted: #86868B;
+  --accent: #FFFFFF;
+
+  /* Gradients */
+  --hero-glow: radial-gradient(circle at center, #1A1C2E 0%, #000000 70%);
 }
 
 @theme inline {
-  --color-accent: var(--accent);
-  --color-charcoal: var(--text-primary);
-  --color-cream: var(--background);
-  --color-stone: var(--ui-surface);
-  --color-teal: var(--accent-secondary);
+  --color-dark: #000000;
+  --color-surface: var(--surface-dark);
+  --color-light: var(--surface-light);
+  --color-muted: var(--text-muted);
 
-  --font-serif: var(--font-lora);
-  --font-sans: var(--font-ibm-plex-sans);
+  --font-serif: var(--font-newsreader), serif;
+  --font-sans: var(--font-inter), sans-serif;
 
-  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-fade-in: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
   @keyframes fade-in {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-ibm-plex-sans), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6, .font-serif {
-  font-family: var(--font-lora), serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-serif {
+  font-family: var(--font-newsreader), serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.bg-hero-glow {
+  background: var(--hero-glow);
 }

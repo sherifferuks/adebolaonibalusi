@@ -2,68 +2,74 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/Button';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 export const Hero: React.FC = () => {
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-cream">
-            {/* Background Graphic Element (Subtle Gradient Prism) */}
-            <div className="absolute top-1/2 -right-20 -translate-y-1/2 w-[600px] h-[600px] blur-[120px] opacity-20 pointer-events-none">
-                <div className="w-full h-full bg-gradient-to-br from-accent to-teal rounded-full animate-pulse" />
+        <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-black selection:bg-white selection:text-black">
+            {/* Background Radial Glow */}
+            <div className="absolute inset-0 bg-hero-glow opacity-60 pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-12">
+                {/* Badge */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md"
+                >
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">Next-Gen Legal Operations</span>
+                </motion.div>
+
+                {/* Main Heading */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                    className="space-y-6"
+                >
+                    <h1 className="text-5xl md:text-8xl font-serif text-white leading-[1.05] tracking-tight max-w-4xl mx-auto">
+                        Your Law Firm, <br />
+                        <span className="italic">On Autopilot</span>
+                    </h1>
+                    <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto font-medium leading-relaxed">
+                        Automate filings, handle litigation research, and manage your entire legal strategy with our AI-driven operations hub.
+                    </p>
+                </motion.div>
+
+                {/* CTA Group */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-6"
+                >
+                    <Button variant="primary" size="lg" className="h-16 px-10 gap-3 text-base">
+                        Get started <ArrowRight size={20} />
+                    </Button>
+                    <div className="text-[12px] font-bold uppercase tracking-[0.15em] text-white/30 italic">
+                        {/* // Trusted by top-tier partners */}
+                    </div>
+                </motion.div>
+
+                {/* Integration Logos Mockup */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.4 }}
+                    transition={{ duration: 1.5, delay: 0.5 }}
+                    className="pt-20 flex flex-wrap justify-center items-center gap-x-16 gap-y-10 grayscale invert"
+                >
+                    <span className="text-2xl font-bold tracking-tighter">SALESFORCE</span>
+                    <span className="text-2xl font-bold tracking-tighter">HUBSPOT</span>
+                    <span className="text-2xl font-bold tracking-tighter">STRIPE</span>
+                    <span className="text-2xl font-bold tracking-tighter">VERIZON</span>
+                </motion.div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-                {/* Text Content */}
-                <div className="space-y-8 animate-fade-in">
-                    <div className="space-y-4">
-                        <h1 className="text-5xl md:text-7xl font-bold text-charcoal leading-[1.1]">
-                            <span className="block italic font-normal text-accent/90">Trust</span>
-                            Through Precision <br />
-                            <span className="text-stone">Legal Excellence.</span>
-                        </h1>
-                        <p className="text-lg md:text-xl text-charcoal/70 max-w-lg leading-relaxed font-sans">
-                            Adebola, Onibalusi & Co. provides elite legal services powered by cutting-edge research and automation. We don&apos;t just practice law; we innovate it.
-                        </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-4 items-center">
-                        <Button size="lg" className="group">
-                            Our Services
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                        <Button variant="ghost" size="lg" className="hover:text-accent">
-                            View Case Studies
-                        </Button>
-                    </div>
-
-                    {/* Trust/Recognition Area (Inspired by Suso) */}
-                    <div className="pt-12 border-t border-stone/20">
-                        <p className="text-xs uppercase tracking-[0.2em] font-bold text-stone mb-6">
-                            Recognized For Excellence In
-                        </p>
-                        <div className="flex flex-wrap gap-x-8 gap-y-4 items-center opacity-60">
-                            <span className="text-sm font-bold text-charcoal italic tracking-tight underline">Corporate Law Monthly</span>
-                            <span className="text-sm font-bold text-charcoal tracking-widest">LEGAL500</span>
-                            <span className="text-sm font-bold text-charcoal uppercase border border-charcoal/30 px-2 py-0.5">Global Elite</span>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Visual Element (Adapted from Suso Prism) */}
-                <div className="hidden lg:flex justify-center relative">
-                    <div className="relative w-full max-w-[500px] aspect-square">
-                        <div className="absolute inset-0 border-[3px] border-accent/20 rotate-45 rounded-3xl" />
-                        <div className="absolute inset-4 border-[2px] border-teal/20 -rotate-12 rounded-2xl" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-64 h-64 bg-accent/10 backdrop-blur-3xl rounded-full flex items-center justify-center p-8">
-                                <div className="w-full h-full border border-accent/40 rounded-full flex items-center justify-center">
-                                    <span className="text-5xl font-serif font-bold text-accent">AO</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {/* Subtle Gradient Transition at bottom */}
+            <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-dark to-transparent" />
         </section>
     );
 };

@@ -1,59 +1,80 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+
+const footerLinks = {
+    Product: [
+        { name: 'Features', href: '#' },
+        { name: 'Practice Areas', href: '#' },
+        { name: 'Insights', href: '#' },
+        { name: 'Careers', href: '/careers' },
+        { name: 'Portal', href: '/portal/kanban' },
+    ],
+    Company: [
+        { name: 'About', href: '#' },
+        { name: 'Privacy Policy', href: '#' },
+        { name: 'Terms', href: '#' },
+    ],
+    Social: [
+        { name: 'Twitter', href: '#' },
+        { name: 'LinkedIn', href: '#' },
+        { name: 'Facebook', href: '#' },
+    ]
+};
 
 export const Footer: React.FC = () => {
     return (
-        <footer className="bg-charcoal text-white pt-24 pb-12">
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-20">
-                    {/* Logo & Info */}
-                    <div className="lg:col-span-1 space-y-6">
-                        <span className="text-3xl font-serif font-bold tracking-tight text-white">
-                            AO<span className="text-accent">&</span>Co.
-                        </span>
-                        <p className="text-stone text-sm leading-relaxed max-w-xs">
-                            A professional and responsive legal practice delivering excellence through tradition and technology.
+        <footer className="bg-black text-white py-32 selection:bg-white selection:text-black">
+            <div className="max-w-7xl mx-auto px-6">
+                {/* Top Contact Bar */}
+                <div className="flex flex-wrap justify-between items-center gap-12 pb-24 border-b border-white/10">
+                    {['hello@ao-co.law', 'Twitter', 'Facebook', 'LinkedIn'].map((item) => (
+                        <Link
+                            key={item}
+                            href="#"
+                            className="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-white/50 hover:text-white transition-all group"
+                        >
+                            {item} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    ))}
+                </div>
+
+                <div className="pt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
+                    {/* Brand Column */}
+                    <div className="space-y-10 lg:col-span-1">
+                        <Link href="/" className="flex items-center gap-2 group">
+                            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center -rotate-6 group-hover:rotate-0 transition-transform">
+                                <span className="text-dark font-bold text-sm">AO</span>
+                            </div>
+                            <span className="text-xl font-bold tracking-tight text-white">
+                                AO & Co.
+                            </span>
+                        </Link>
+                        <p className="text-sm text-white/40 leading-relaxed font-medium">
+                            © COPYRIGHT 2026. ALL RIGHTS RESERVED BY ADEBOLA, ONIBALUSI & CO.
                         </p>
                     </div>
 
-                    {/* Links */}
-                    <div className="space-y-6">
-                        <h4 className="text-sm uppercase tracking-widest font-bold text-accent">Practice Areas</h4>
-                        <ul className="space-y-3 text-stone font-medium">
-                            <li><Link href="#" className="hover:text-white transition-colors">Corporate Law</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Property Law</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Dispute Resolution</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Employment Law</Link></li>
-                        </ul>
-                    </div>
-
-                    <div className="space-y-6">
-                        <h4 className="text-sm uppercase tracking-widest font-bold text-accent">Company</h4>
-                        <ul className="space-y-3 text-stone font-medium">
-                            <li><Link href="#" className="hover:text-white transition-colors">About Us</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">The Team</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Blog & News</Link></li>
-                            <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
-                        </ul>
-                    </div>
-
-                    <div className="space-y-6 text-stone text-sm">
-                        <h4 className="text-sm uppercase tracking-widest font-bold text-accent">Contact</h4>
-                        <div className="space-y-4 font-medium">
-                            <p>123 Legal Avenue,<br />Central Business District</p>
-                            <p>info@aoco.legal</p>
-                            <p>+234 800 000 0000</p>
+                    {/* Link Columns */}
+                    {Object.entries(footerLinks).map(([title, links]) => (
+                        <div key={title} className="space-y-8">
+                            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/30">{title}</h3>
+                            <ul className="space-y-4">
+                                {links.map((link) => (
+                                    <li key={link.name}>
+                                        <Link
+                                            href={link.href}
+                                            className="text-sm font-medium text-white/60 hover:text-white transition-colors"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-stone text-[10px] uppercase font-bold tracking-[0.2em]">
-                    <p>© 2026 Adebola, Onibalusi & Co. All rights reserved.</p>
-                    <div className="flex gap-8">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-                    </div>
+                    ))}
                 </div>
             </div>
         </footer>

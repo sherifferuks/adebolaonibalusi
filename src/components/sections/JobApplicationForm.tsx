@@ -18,115 +18,106 @@ export const JobApplicationForm: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('submitting');
-
-        const result = await sendWebhook('job-application', formData);
-
-        if (result.success) {
+        try {
+            await sendWebhook('https://n8n.your-domain.com/webhook/job-application', formData);
             setStatus('success');
             setFormData({ name: '', email: '', role: 'Lawyer', linkedin: '', message: '' });
-        } else {
+        } catch (error) {
+            console.error('Submission failed:', error);
             setStatus('error');
         }
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
-    };
-
     return (
-        <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-stone/10 border border-stone/5">
-            {status === 'success' ? (
-                <div className="text-center py-12 space-y-6 animate-fade-in">
-                    <div className="w-20 h-20 bg-accent/20 text-accent rounded-full flex items-center justify-center mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <h3 className="text-3xl font-serif font-bold text-charcoal">Application Received</h3>
-                    <p className="text-stone font-medium">Thank you for your interest in AO & Co. Our team will review your application and get back to you shortly.</p>
-                    <Button onClick={() => setStatus('idle')} variant="outline">Submit Another</Button>
-                </div>
-            ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-widest font-bold text-stone ml-1">Full Name</label>
-                            <input
-                                required
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder="Adebola Onibalusi"
-                                className="w-full bg-cream/50 border border-stone/20 rounded-2xl px-6 py-4 focus:border-accent outline-none transition-colors text-charcoal font-medium"
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-widest font-bold text-stone ml-1">Email Address</label>
-                            <input
-                                required
-                                type="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="adebola@example.com"
-                                className="w-full bg-cream/50 border border-stone/20 rounded-2xl px-6 py-4 focus:border-accent outline-none transition-colors text-charcoal font-medium"
-                            />
-                        </div>
-                    </div>
+        <div className="bg-white border border-dark/5 shadow-2xl rounded-[2.5rem] p-10 md:p-12 space-y-10">
+            <div className="space-y-2">
+                <h2 className="text-2xl font-serif font-medium text-dark tracking-tight">Application Portal</h2>
+                <p className="text-sm text-dark/40 font-medium tracking-wide font-bold uppercase">Direct Submission</p>
+            </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-widest font-bold text-stone ml-1">Desired Role</label>
-                            <select
-                                name="role"
-                                value={formData.role}
-                                onChange={handleChange}
-                                aria-label="Select desired role"
-                                className="w-full bg-cream/50 border border-stone/20 rounded-2xl px-6 py-4 focus:border-accent outline-none transition-colors text-charcoal font-medium appearance-none"
-                            >
-                                <option>Associate Lawyer</option>
-                                <option>Intern</option>
-                                <option>Legal Researcher</option>
-                                <option>Operations Manager</option>
-                            </select>
-                        </div>
-                        <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-widest font-bold text-stone ml-1">LinkedIn Profile</label>
-                            <input
-                                name="linkedin"
-                                value={formData.linkedin}
-                                onChange={handleChange}
-                                placeholder="https://linkedin.com/in/..."
-                                className="w-full bg-cream/50 border border-stone/20 rounded-2xl px-6 py-4 focus:border-accent outline-none transition-colors text-charcoal font-medium"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="space-y-2">
-                        <label className="text-xs uppercase tracking-widest font-bold text-stone ml-1">Tell us about your expertise</label>
-                        <textarea
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            rows={4}
-                            placeholder="How can you contribute to the firm?"
-                            className="w-full bg-cream/50 border border-stone/20 rounded-2xl px-6 py-4 focus:border-accent outline-none transition-colors text-charcoal font-medium resize-none"
+            <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-3">
+                        <label className="text-[11px] font-bold uppercase tracking-widest text-dark/40 ml-1">Full Name</label>
+                        <input
+                            required
+                            type="text"
+                            placeholder="Adebayo Onibalusi"
+                            className="w-full bg-dark/5 border border-transparent focus:border-dark/10 focus:bg-white rounded-2xl px-6 py-4 text-sm font-medium transition-all outline-none"
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
                     </div>
+                    <div className="space-y-3">
+                        <label className="text-[11px] font-bold uppercase tracking-widest text-dark/40 ml-1">Email Address</label>
+                        <input
+                            required
+                            type="email"
+                            placeholder="example@ao-co.law"
+                            className="w-full bg-dark/5 border border-transparent focus:border-dark/10 focus:bg-white rounded-2xl px-6 py-4 text-sm font-medium transition-all outline-none"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        />
+                    </div>
+                </div>
 
-                    {status === 'error' && (
-                        <p className="text-accent text-sm font-medium text-center">Something went wrong. Please try again later.</p>
-                    )}
-
-                    <Button
-                        type="submit"
-                        className="w-full py-5 text-lg"
-                        disabled={status === 'submitting'}
+                <div className="space-y-3">
+                    <label className="text-[11px] font-bold uppercase tracking-widest text-dark/40 ml-1">Desired Role</label>
+                    <select
+                        aria-label="Select roles"
+                        className="w-full bg-dark/5 border border-transparent focus:border-dark/10 focus:bg-white rounded-2xl px-6 py-4 text-sm font-medium transition-all outline-none appearance-none"
+                        value={formData.role}
+                        onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     >
-                        {status === 'submitting' ? 'Submitting...' : 'Submit Application'}
-                    </Button>
-                </form>
-            )}
+                        <option>Lawyer</option>
+                        <option>Legal Researcher</option>
+                        <option>Technical Analyst</option>
+                        <option>Admin Specialist</option>
+                    </select>
+                </div>
+
+                <div className="space-y-3">
+                    <label className="text-[11px] font-bold uppercase tracking-widest text-dark/40 ml-1">LinkedIn Profile</label>
+                    <input
+                        type="url"
+                        placeholder="https://linkedin.com/in/..."
+                        className="w-full bg-dark/5 border border-transparent focus:border-dark/10 focus:bg-white rounded-2xl px-6 py-4 text-sm font-medium transition-all outline-none"
+                        value={formData.linkedin}
+                        onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
+                    />
+                </div>
+
+                <div className="space-y-3">
+                    <label className="text-[11px] font-bold uppercase tracking-widest text-dark/40 ml-1">Initial Brief / Cover Note</label>
+                    <textarea
+                        rows={4}
+                        placeholder="Tell us about your background and why you're a fit..."
+                        className="w-full bg-dark/5 border border-transparent focus:border-dark/10 focus:bg-white rounded-2xl px-6 py-4 text-sm font-medium transition-all outline-none resize-none"
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    />
+                </div>
+
+                <Button
+                    type="submit"
+                    variant="primary"
+                    disabled={status === 'submitting'}
+                    className="w-full h-16 text-dark bg-dark text-white rounded-2xl"
+                >
+                    {status === 'submitting' ? 'Submitting...' : 'Send Application'}
+                </Button>
+
+                {status === 'success' && (
+                    <p className="text-center text-sm font-bold text-green-600 animate-fade-in tracking-wide uppercase">
+                        Application Sent Successfully.
+                    </p>
+                )}
+                {status === 'error' && (
+                    <p className="text-center text-sm font-bold text-red-600 animate-fade-in tracking-wide uppercase">
+                        Error sending application. Please try again.
+                    </p>
+                )}
+            </form>
         </div>
     );
 };

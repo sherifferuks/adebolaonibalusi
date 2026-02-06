@@ -1,58 +1,62 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-
-const services = [
-    { name: 'Corporate & Commercial Law', href: '#corporate' },
-    { name: 'Intellectual Property & IT', href: '#ip-it' },
-    { name: 'Dispute Resolution & Litigation', href: '#dispute' },
-    { name: 'Real Estate & Property Law', href: '#real-estate' },
-    { name: 'Employment & Labor Relations', href: '#employment' },
-    { name: 'Banking & Financial Services', href: '#banking' },
-];
+import { ArrowRight } from 'lucide-react';
 
 export const Services: React.FC = () => {
     return (
-        <section id="services" className="py-24 bg-white border-y border-stone/10">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                {/* Left Side: Intro */}
-                <div className="space-y-8 sticky top-32">
-                    <div className="space-y-4">
-                        <h2 className="text-4xl md:text-5xl font-bold text-charcoal leading-tight">
-                            A Superior Legal Partner <br />
-                            <span className="text-stone">For Industry Leaders.</span>
-                        </h2>
-                        <p className="text-lg text-charcoal/70 leading-relaxed font-sans max-w-md">
-                            We provide precise, scalable legal strategies designed for the modern business landscape. Our expertise spans all core areas of corporate and personal law.
-                        </p>
+        <section id="features" className="py-32 bg-light text-dark overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                    {/* Left Column: Heading & Text */}
+                    <div className="space-y-12">
+                        <div className="space-y-6">
+                            <h2 className="text-5xl md:text-7xl font-serif leading-[1.1] tracking-tight">
+                                One workflow is all it takes
+                            </h2>
+                            <p className="text-xl text-dark/60 leading-relaxed font-medium max-w-lg">
+                                Send a quick draft or voice memo and our AI will generate filings, update case statuses, and assign tasks—all in one go.
+                            </p>
+                        </div>
+
+                        <Button variant="secondary" size="lg" className="h-16 px-8 gap-3 border-dark/10 bg-dark/5 hover:bg-dark/10 text-dark">
+                            Get to know AO & Co <ArrowRight size={18} />
+                        </Button>
                     </div>
-                    <Button variant="outline" size="lg">
-                        All Practice Areas
-                    </Button>
+
+                    {/* Right Column: Stats Grid */}
+                    <div className="grid grid-cols-2 gap-x-12 gap-y-20 border-l border-dark/10 pl-12">
+                        <div className="space-y-2">
+                            <div className="text-6xl font-serif text-dark tracking-tighter">+350%</div>
+                            <div className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Efficiency Gained</div>
+                        </div>
+                        <div className="space-y-2 pl-8 border-l border-dark/10">
+                            <div className="text-6xl font-serif text-dark tracking-tighter">+80%</div>
+                            <div className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Filing Speed</div>
+                        </div>
+                        <div className="space-y-2">
+                            <div className="text-6xl font-serif text-dark tracking-tighter">-70%</div>
+                            <div className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Admin Latency</div>
+                        </div>
+                        <div className="space-y-2 pl-8 border-l border-dark/10">
+                            <div className="text-6xl font-serif text-dark tracking-tighter">+30%</div>
+                            <div className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Case Throughput</div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Right Side: Services Grid (Arrow Links) */}
-                <div className="w-full">
-                    <ul className="divide-y divide-stone/15">
-                        {services.map((service) => (
-                            <li key={service.name} className="group first:pt-0 last:pb-0">
-                                <Link
-                                    href={service.href}
-                                    className="flex items-center justify-between py-8 transition-colors hover:text-accent"
-                                >
-                                    <span className="text-xl md:text-2xl font-serif font-medium group-hover:pl-2 transition-all duration-300">
-                                        {service.name}
-                                    </span>
-                                    <div className="w-12 h-12 rounded-full border border-stone/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300">
-                                        <ArrowRight size={20} />
-                                    </div>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                {/* Integration Pill Placeholder */}
+                <div className="mt-40 flex justify-center">
+                    <div className="bg-white border border-dark/5 shadow-xl shadow-dark/5 px-10 py-5 rounded-3xl flex items-center gap-6">
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Automate via</span>
+                        <div className="flex items-center gap-6 opacity-60">
+                            <span className="font-bold tracking-tighter">WhatsApp</span>
+                            <span className="font-bold tracking-tighter">Telegram</span>
+                            <span className="font-bold tracking-tighter">Slack</span>
+                        </div>
+                        <ArrowRight size={16} className="text-dark/40 ml-4" />
+                    </div>
                 </div>
             </div>
         </section>
