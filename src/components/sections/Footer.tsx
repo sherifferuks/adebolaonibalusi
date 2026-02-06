@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const footerLinks = {
-    Product: [
-        { name: 'Features', href: '#' },
-        { name: 'Practice Areas', href: '#' },
-        { name: 'Insights', href: '#' },
+    Firm: [
+        { name: 'Expertise', href: '/#features' },
+        { name: 'Partners', href: '/team' },
+        { name: 'Insights', href: '/#insights' },
         { name: 'Careers', href: '/careers' },
-        { name: 'Portal', href: '/portal/kanban' },
+        { name: 'Legal Portal', href: '/portal/kanban' },
     ],
     Company: [
         { name: 'About', href: '#' },

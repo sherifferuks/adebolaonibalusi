@@ -6,23 +6,23 @@ import { ArrowRight, Box, Search, FileText, Database } from 'lucide-react';
 
 const detailedFeatures = [
     {
-        title: 'Manages Case objects',
-        description: 'Organize and adjust contacts, corporate filing stages, and litigation—all in one place.',
+        title: 'Case Management',
+        description: 'We organize contacts, corporate filing stages, and complex litigation internally with zero administrative latency.',
         icon: <Box size={20} className="text-dark/40" />
     },
     {
-        title: 'Searches for filings',
-        description: 'Seamlessly access any legal document related to any client or corporate entity.',
+        title: 'Instant Research',
+        description: 'Our team has instantaneous access to critical legal documents, allowing for deeper research in minutes, not days.',
         icon: <Search size={20} className="text-dark/40" />
     },
     {
-        title: 'Adds legal notes',
-        description: 'Add remarks, edit data fields, and include extra information in case transactions.',
+        title: 'Document Automation',
+        description: 'We automate the creation of routine legal notes and data entries, ensuring human error is virtually eliminated.',
         icon: <FileText size={20} className="text-dark/40" />
     },
     {
-        title: 'Pulls and manages data',
-        description: 'Create, modify, and pull up tasks and data; we support all default & custom fields.',
+        title: 'Data Accuracy',
+        description: 'Our internal sync ensures that every task and data point is up to date, supporting every stage of the legal cycle.',
         icon: <Database size={20} className="text-dark/40" />
     }
 ];
@@ -34,11 +34,12 @@ export const VideoShowcase: React.FC = () => {
                 {/* Header Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <h2 className="text-4xl md:text-6xl font-serif leading-tight">
-                        See AO & Co in action
+                        The AO & Co <br />
+                        <span className="italic">Internal Edge</span>
                     </h2>
                     <div className="space-y-6">
                         <p className="text-lg text-dark/50 font-medium leading-relaxed">
-                            Say goodbye to clunky legal workflows. Just text or talk—our AI updates everything for you. Fast, simple, no extra steps.
+                            Our attorneys leverage a proprietary internal infrastructure that automates routine filings and data management, allowing us to focus 100% on high-level strategy for our clients.
                         </p>
                     </div>
                 </div>
@@ -72,8 +73,8 @@ export const VideoShowcase: React.FC = () => {
                         </div>
                     ))}
                     <div className="pt-8">
-                        <Link href="#" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-dark group border-b border-dark/10 pb-2">
-                            Explore features <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        <Link href="/team" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-dark group border-b border-dark/10 pb-2">
+                            Meet the Partners <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
                 </div>

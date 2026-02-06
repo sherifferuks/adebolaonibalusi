@@ -13,15 +13,16 @@ export const Services: React.FC = () => {
                     <div className="space-y-12">
                         <div className="space-y-6">
                             <h2 className="text-5xl md:text-7xl font-serif leading-[1.1] tracking-tight">
-                                One workflow is all it takes
+                                Legal Excellence <br />
+                                at unmatched speed
                             </h2>
                             <p className="text-xl text-dark/60 leading-relaxed font-medium max-w-lg">
-                                Send a quick draft or voice memo and our AI will generate filings, update case statuses, and assign tasks—all in one go.
+                                Our internal AI infrastructure allows us to process complex legal filings and conduct deep-dive research in a fraction of the time. You get superior results, faster.
                             </p>
                         </div>
 
                         <Button variant="secondary" size="lg" className="h-16 px-8 gap-3 border-dark/10 bg-dark/5 hover:bg-dark/10 text-dark">
-                            Get to know AO & Co <ArrowRight size={18} />
+                            Meet the Partners <ArrowRight size={18} />
                         </Button>
                     </div>
 
@@ -49,11 +50,11 @@ export const Services: React.FC = () => {
                 {/* Integration Pill Placeholder */}
                 <div className="mt-40 flex justify-center">
                     <div className="bg-white border border-dark/5 shadow-xl shadow-dark/5 px-10 py-5 rounded-3xl flex items-center gap-6">
-                        <span className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Automate via</span>
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Our Internal Edge</span>
                         <div className="flex items-center gap-6 opacity-60">
-                            <span className="font-bold tracking-tighter">WhatsApp</span>
-                            <span className="font-bold tracking-tighter">Telegram</span>
-                            <span className="font-bold tracking-tighter">Slack</span>
+                            <span className="font-bold tracking-tighter">AI SEARCH</span>
+                            <span className="font-bold tracking-tighter">DATA SYNC</span>
+                            <span className="font-bold tracking-tighter">AUTO FILING</span>
                         </div>
                         <ArrowRight size={16} className="text-dark/40 ml-4" />
                     </div>

@@ -11,14 +11,14 @@ export const HowItWorks: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
                     <div className="space-y-4">
                         <h2 className="text-4xl md:text-6xl font-serif max-w-xl leading-tight">
-                            Handles complex legal updates with ease
+                            The Operational Engine
                         </h2>
                         <p className="text-lg text-dark/50 max-w-md font-medium">
-                            Long brief? No problem. Our AI updates your case files accurately—even from multi-minute voice notes.
+                            We utilize advanced internal automation to ensure every litigation brief, case update, and research task is processed with 100% accuracy.
                         </p>
                     </div>
-                    <Button variant="secondary" className="gap-2">
-                        Firm features <ArrowRight size={16} />
+                    <Button variant="secondary" className="gap-2 px-6">
+                        Internal Workspace <ArrowRight size={16} />
                     </Button>
                 </div>
 
@@ -28,11 +28,11 @@ export const HowItWorks: React.FC = () => {
                         <div className="relative w-72 h-[550px] bg-black rounded-[3rem] border-8 border-[#1a1a1a] shadow-2xl p-6 space-y-4">
                             <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
                             <div className="pt-10 flex flex-col gap-3">
-                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Conference Lead</div>
-                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Bill Smith, IBM, working status</div>
-                                <div className="bg-white/20 rounded-2xl p-3 text-[11px] text-white font-medium self-end">Would you like to add a note or a task?</div>
-                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70 line-clamp-3">He needs pricing for 100 seats and wants to schedule a demo on December 11th.</div>
-                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Done! I&apos;ve created a new lead for Bill Smith...</div>
+                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Partnership Review</div>
+                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Litigation Draft #042, Lagos Office</div>
+                                <div className="bg-white/20 rounded-2xl p-3 text-[11px] text-white font-medium self-end">Draft complete. Review for IP compliance?</div>
+                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70 line-clamp-3">Internal researcher flagged 3 case laws needing secondary audit before Lagos filing deadline.</div>
+                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Done! I&apos;ve logged the flags...</div>
                             </div>
                             <div className="absolute bottom-10 left-6 right-6">
                                 <Button className="w-full h-10 text-xs rounded-xl">Continue</Button>
@@ -47,34 +47,34 @@ export const HowItWorks: React.FC = () => {
 
                         <div className="relative z-10 w-full space-y-6">
                             <div className="bg-white border border-dark/5 shadow-lg rounded-2xl p-6 flex items-center gap-4">
-                                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">BS</div>
+                                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">AO</div>
                                 <div className="flex-1">
-                                    <h4 className="font-bold text-sm">Bill Smith</h4>
-                                    <p className="text-[10px] text-dark/40 font-bold uppercase tracking-widest">IBM</p>
+                                    <h4 className="font-bold text-sm">Lagos Merger</h4>
+                                    <p className="text-[10px] text-dark/40 font-bold uppercase tracking-widest">Active Audit</p>
                                 </div>
                                 <MoreHorizontal size={16} className="text-dark/20" />
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <div className="flex-grow h-px bg-dark/5 italic text-[10px] text-dark/20 flex items-center justify-center">connecting to CRM</div>
+                                <div className="flex-grow h-px bg-dark/5 italic text-[10px] text-dark/20 flex items-center justify-center">syncing internal data</div>
                             </div>
 
                             <div className="space-y-3">
                                 <div className="flex items-center gap-3">
                                     <div className="w-3 h-3 rounded-full bg-green-500" />
-                                    <span className="text-xs font-medium">add lead to Salesforce</span>
+                                    <span className="text-xs font-medium">verify IP compliance</span>
                                 </div>
                                 <div className="flex items-center gap-3 ml-6 opacity-40">
                                     <div className="w-3 h-3 rounded-full border border-dark/20" />
-                                    <span className="text-xs font-medium">add tasks and notes</span>
+                                    <span className="text-xs font-medium">review litigation brief</span>
                                 </div>
                             </div>
 
                             <div className="bg-[#F9FAFB] border border-dark/5 rounded-2xl p-6 flex items-center gap-4 translate-x-12 opacity-80 scale-95">
-                                <div className="w-10 h-10 bg-dark/5 rounded-full flex items-center justify-center text-dark/40 font-bold">BS</div>
+                                <div className="w-10 h-10 bg-dark/5 rounded-full flex items-center justify-center text-dark/40 font-bold">LR</div>
                                 <div className="flex-1">
-                                    <h4 className="font-bold text-sm">Bill Smith</h4>
-                                    <p className="text-[10px] text-dark/40 font-bold uppercase tracking-widest">IBM, Status: Working</p>
+                                    <h4 className="font-bold text-sm">Legal Research</h4>
+                                    <p className="text-[10px] text-dark/40 font-bold uppercase tracking-widest">Status: Secondary Audit</p>
                                 </div>
                             </div>
                         </div>
