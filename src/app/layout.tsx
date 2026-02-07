@@ -19,7 +19,12 @@ export const metadata: Metadata = {
   title: "AO & Co. | Multi-Disciplinary Legal Excellence",
   description: "A premier full-service law firm providing sophisticated counsel across Litigation, Corporate Compliance, Real Estate, Banking, and Entertainment Law.",
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 
