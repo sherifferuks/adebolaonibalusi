@@ -146,15 +146,22 @@ const fragmentShader = `
 
     buf[0] = sigmoid(buf[0]);
     
-    // AO & Co. Brand Gradient: Burnt Sunrise (#D9532A) to Harbor Teal (#1F6E78)
-    vec3 colorA = vec3(0.851, 0.325, 0.165); 
-    vec3 colorB = vec3(0.122, 0.431, 0.471);
+    // Brand Colors
+    vec3 burntSunrise = vec3(0.851, 0.325, 0.165); // #D9532A
+    vec3 harborTeal = vec3(0.122, 0.431, 0.471);   // #1F6E78
     
-    // Calculate intensity from neural buffer
+    // 1. Create the brand fluid color by mixing the two brand colors
+    // We use one of the buffer channels to create variety in the fluid's own color
+    vec3 fluidColor = mix(burntSunrise, harborTeal, buf[0].z);
+    
+    // 2. Calculate the "pattern intensity" (how much fluid is present at this pixel)
+    // We use the sum of channels and apply a power for sharper, more defined "tendrils"
     float intensity = clamp((buf[0].x + buf[0].y + buf[0].z) / 3.0, 0.0, 1.0);
+    intensity = pow(intensity, 2.5); // Sharpens the mask to keep background black
     
-    // Create subtle brand-aligned generative surface
-    vec3 finalColor = mix(colorA, colorB, intensity);
+    // 3. Final color is the brand fluid masked by the intensity
+    // Background (where intensity is 0) will be black
+    vec3 finalColor = fluidColor * intensity;
     
     return vec4(finalColor, 1.0);
   }
