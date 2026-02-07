@@ -145,7 +145,18 @@ const fragmentShader = `
     + vec4(-1.5468478, -3.6171484, 0.24762098, 0.0);
 
     buf[0] = sigmoid(buf[0]);
-    return vec4(buf[0].x , buf[0].y , buf[0].z, 1.0);
+    
+    // AO & Co. Brand Gradient: Burnt Sunrise (#D9532A) to Harbor Teal (#1F6E78)
+    vec3 colorA = vec3(0.851, 0.325, 0.165); 
+    vec3 colorB = vec3(0.122, 0.431, 0.471);
+    
+    // Calculate intensity from neural buffer
+    float intensity = clamp((buf[0].x + buf[0].y + buf[0].z) / 3.0, 0.0, 1.0);
+    
+    // Create subtle brand-aligned generative surface
+    vec3 finalColor = mix(colorA, colorB, intensity);
+    
+    return vec4(finalColor, 1.0);
   }
   
   void main() {
@@ -346,8 +357,8 @@ export default function Hero({
                             key={index}
                             href={button.href}
                             className={`rounded-2xl border border-white/10 px-5 py-3 text-sm font-light tracking-tight transition-colors focus:outline-none focus:ring-2 focus:ring-white/30 duration-300 ${button.primary
-                                    ? "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
-                                    : "text-white/80 hover:bg-white/5"
+                                ? "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
+                                : "text-white/80 hover:bg-white/5"
                                 }`}
                         >
                             {button.text}
