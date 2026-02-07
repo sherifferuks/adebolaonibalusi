@@ -146,22 +146,21 @@ const fragmentShader = `
 
     buf[0] = sigmoid(buf[0]);
     
-    // Brand Colors
-    vec3 burntSunrise = vec3(0.851, 0.325, 0.165); // #D9532A
-    vec3 harborTeal = vec3(0.122, 0.431, 0.471);   // #1F6E78
+    buf[0] = sigmoid(buf[0]);
     
-    // 1. Create the brand fluid color by mixing the two brand colors based on neural pattern
-    vec3 fluidColor = mix(burntSunrise, harborTeal, buf[0].z);
+    // AO & Co. Burnt Sunrise: #D9532A (217, 83, 42)
+    vec3 burntSunrise = vec3(0.851, 0.325, 0.165);
     
-    // 2. Calculate the "pattern mask"
+    // 1. Calculate the "pattern mask"
     // We use the maximum of the neural channels to define the shapes
     float pattern = max(buf[0].x, max(buf[0].y, buf[0].z));
     
-    // Smooth the pattern to create soft, fluid edges while keeping the background dark
-    float mask = smoothstep(0.4, 0.6, pattern);
+    // 2. Smooth the pattern to create soft, fluid edges
+    // We use a slightly more aggressive smoothstep to ensure the color is saturated
+    float mask = smoothstep(0.35, 0.65, pattern);
     
-    // 3. Final color: Brand fluid emerges from pure black
-    vec3 finalColor = fluidColor * mask;
+    // 3. Final color: Vibrant Burnt Sunrise fluid on pure black
+    vec3 finalColor = burntSunrise * mask * 1.2; // 1.2 boost for saturation/vibrancy
     
     return vec4(finalColor, 1.0);
   }
