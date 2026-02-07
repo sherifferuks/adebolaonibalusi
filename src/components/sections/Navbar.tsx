@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { Menu, X } from 'lucide-react';
 
@@ -29,13 +30,15 @@ export const Navbar: React.FC = () => {
                 <div className={`flex items-center justify-between bg-dark/40 backdrop-blur-xl border border-white/10 px-6 sm:px-8 py-3 rounded-full transition-all duration-500 ${isScrolled ? 'shadow-2xl' : ''
                     }`}>
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 group">
-                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center -rotate-6 group-hover:rotate-0 transition-transform">
-                            <span className="text-dark font-bold text-sm">AO</span>
-                        </div>
-                        <span className="text-xl font-bold tracking-tight text-white hidden sm:block">
-                            AO & Co.
-                        </span>
+                    <Link href="/" className="flex items-center gap-4 group">
+                        <Image
+                            src="/logo-white.png"
+                            alt="Adebola, Onibalusi & Co."
+                            width={240}
+                            height={60}
+                            className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                            priority
+                        />
                     </Link>
 
                     {/* Desktop Navigation */}

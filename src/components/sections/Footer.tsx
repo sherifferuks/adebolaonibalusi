@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const footerLinks = {
@@ -44,13 +45,14 @@ export const Footer: React.FC = () => {
                 <div className="pt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
                     {/* Brand Column */}
                     <div className="space-y-10 lg:col-span-1">
-                        <Link href="/" className="flex items-center gap-2 group">
-                            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center -rotate-6 group-hover:rotate-0 transition-transform">
-                                <span className="text-dark font-bold text-sm">AO</span>
-                            </div>
-                            <span className="text-xl font-bold tracking-tight text-white">
-                                AO & Co.
-                            </span>
+                        <Link href="/" className="flex items-center gap-4 group">
+                            <Image
+                                src="/logo-white.png"
+                                alt="Adebola, Onibalusi & Co."
+                                width={180}
+                                height={45}
+                                className="h-10 w-auto object-contain transition-transform group-hover:scale-105"
+                            />
                         </Link>
                         <p className="text-sm text-white/40 leading-relaxed font-medium">
                             © COPYRIGHT 2026. ALL RIGHTS RESERVED BY ADEBOLA, ONIBALUSI & CO.

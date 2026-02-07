@@ -18,6 +18,9 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   title: "AO & Co. | Multi-Disciplinary Legal Excellence",
   description: "A premier full-service law firm providing sophisticated counsel across Litigation, Corporate Compliance, Real Estate, Banking, and Entertainment Law.",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
