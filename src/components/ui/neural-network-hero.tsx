@@ -150,18 +150,18 @@ const fragmentShader = `
     vec3 burntSunrise = vec3(0.851, 0.325, 0.165); // #D9532A
     vec3 harborTeal = vec3(0.122, 0.431, 0.471);   // #1F6E78
     
-    // 1. Create the brand fluid color by mixing the two brand colors
-    // We use one of the buffer channels to create variety in the fluid's own color
+    // 1. Create the brand fluid color by mixing the two brand colors based on neural pattern
     vec3 fluidColor = mix(burntSunrise, harborTeal, buf[0].z);
     
-    // 2. Calculate the "pattern intensity" (how much fluid is present at this pixel)
-    // We use the sum of channels and apply a power for sharper, more defined "tendrils"
-    float intensity = clamp((buf[0].x + buf[0].y + buf[0].z) / 3.0, 0.0, 1.0);
-    intensity = pow(intensity, 2.5); // Sharpens the mask to keep background black
+    // 2. Calculate the "pattern mask"
+    // We use the maximum of the neural channels to define the shapes
+    float pattern = max(buf[0].x, max(buf[0].y, buf[0].z));
     
-    // 3. Final color is the brand fluid masked by the intensity
-    // Background (where intensity is 0) will be black
-    vec3 finalColor = fluidColor * intensity;
+    // Smooth the pattern to create soft, fluid edges while keeping the background dark
+    float mask = smoothstep(0.4, 0.6, pattern);
+    
+    // 3. Final color: Brand fluid emerges from pure black
+    vec3 finalColor = fluidColor * mask;
     
     return vec4(finalColor, 1.0);
   }
