@@ -5,11 +5,11 @@ import { Button } from '@/components/ui/Button';
 import { Check } from 'lucide-react';
 
 const features = [
-    'Comprehensive Legal Advisory',
-    'Research-Backed Strategy',
-    'In-depth Legal Research',
-    'Global Corporate Compliance',
-    'Dedicated Partner Access',
+    'Full-Service Legal Advisory',
+    'Multi-Disciplinary Expertise',
+    'Specialized Practice Groups',
+    'Global Legal Compliance',
+    'Direct Partner Consultation',
     'Transparent Fee Structure'
 ];
 

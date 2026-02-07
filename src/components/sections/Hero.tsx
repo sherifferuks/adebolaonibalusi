@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
                     className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md"
                 >
                     <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">Corporate Law & Litigation</span>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">Strategic Legal Advisory & Litigation</span>
                 </motion.div>
 
                 {/* Main Heading */}
@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
                         <span className="italic">Legal Authority</span>
                     </h1>
                     <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto font-medium leading-relaxed">
-                        A premier legal firm dedicated to high-stakes corporate matters, providing sophisticated counsel and strategic litigation for global institutions.
+                        A full-service legal institution providing sophisticated multi-disciplinary counsel and strategic litigation for global enterprises across diverse industries.
                     </p>
                 </motion.div>
 
@@ -51,7 +51,7 @@ export const Hero: React.FC = () => {
                     </Button>
                     <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/30 italic">
                         {/* Strategic Advisory & Global Litigation */}
-                        Corporate Advisory Excellence
+                        Practice Excellence Across Disciplines
                     </div>
                 </motion.div>
 

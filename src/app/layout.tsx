@@ -16,8 +16,8 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "AO & Co. | Corporate Law & Strategy",
-  description: "A premier corporate law firm providing sophisticated counsel and strategic litigation for global institutions and high-stakes corporate matters.",
+  title: "AO & Co. | Multi-Disciplinary Legal Excellence",
+  description: "A premier full-service law firm providing sophisticated counsel across Litigation, Corporate Compliance, Real Estate, Banking, and Entertainment Law.",
 };
 
 export default function RootLayout({
