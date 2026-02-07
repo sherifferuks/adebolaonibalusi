@@ -8,6 +8,7 @@ import * as THREE from 'three';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import { AnimatedCarousel } from './logo-carousel';
 
 gsap.registerPlugin(SplitText, useGSAP);
 
@@ -269,7 +270,7 @@ export default function Hero({
     const paraRef = useRef<HTMLParagraphElement | null>(null);
     const ctaRef = useRef<HTMLDivElement | null>(null);
     const badgeRef = useRef<HTMLDivElement | null>(null);
-    const microRef = useRef<HTMLUListElement | null>(null);
+    const microRef = useRef<HTMLDivElement | null>(null);
     const microItem1Ref = useRef<HTMLLIElement | null>(null);
     const microItem2Ref = useRef<HTMLLIElement | null>(null);
     const microItem3Ref = useRef<HTMLLIElement | null>(null);
@@ -375,16 +376,14 @@ export default function Hero({
                     ))}
                 </div>
 
-                <ul ref={microRef} className="mt-8 flex flex-wrap gap-6 text-xs font-extralight tracking-tight text-white/60">
-                    {microDetails.map((detail, index) => {
-                        const refMap = [microItem1Ref, microItem2Ref, microItem3Ref];
-                        return (
-                            <li key={index} ref={refMap[index]} className="flex items-center gap-2">
-                                <span className="h-1 w-1 rounded-full bg-white/40" /> {detail}
-                            </li>
-                        );
-                    })}
-                </ul>
+                <div ref={microRef} className="mt-4 w-full max-w-2xl">
+                    <AnimatedCarousel
+                        title="Institutional Partners & Trust"
+                        padding="py-4"
+                        spacing="gap-2"
+                        autoPlayInterval={4000}
+                    />
+                </div>
             </div>
 
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
