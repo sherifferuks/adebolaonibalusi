@@ -5,18 +5,18 @@ import { ArrowRight } from 'lucide-react';
 
 const posts = [
     {
-        category: 'Legal Tech',
-        title: 'How AO & Co uses AI to expedite corporate mergers',
+        category: 'Corporate',
+        title: 'Navigating the legal landscape of corporate mergers',
         date: 'Jan 24, 2026'
     },
     {
         category: 'Litigation',
-        title: 'Automation in the courtroom: A new era for researchers',
+        title: 'Modern litigation: The evolving role of legal research',
         date: 'Jan 12, 2026'
     },
     {
-        category: 'Privacy',
-        title: 'Handling cross-border data in automated legal filings',
+        category: 'Governance',
+        title: 'Regulatory frameworks in cross-border corporate filings',
         date: 'Dec 28, 2025'
     }
 ];
@@ -31,7 +31,7 @@ export const Insights: React.FC = () => {
                             Latest from the firm
                         </h2>
                         <p className="text-lg text-dark/50 max-w-sm font-medium">
-                            Exploring the intersection of international law and operational technology.
+                            Exploring the nuances of international law and corporate strategy.
                         </p>
                     </div>
                     <a href="#" className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-dark group border-b border-dark/10 pb-2 mb-2">

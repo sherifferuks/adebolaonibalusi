@@ -11,14 +11,15 @@ export const HowItWorks: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
                     <div className="space-y-4">
                         <h2 className="text-4xl md:text-6xl font-serif max-w-xl leading-tight">
-                            The Operational Engine
+                            Excellence in <br />
+                            every detail
                         </h2>
                         <p className="text-lg text-dark/50 max-w-md font-medium">
-                            We utilize advanced internal automation to ensure every litigation brief, case update, and research task is processed with 100% accuracy.
+                            Our practice is built on a foundation of rigorous research and strategic clarity. We manage every case with the precision required for global corporate success.
                         </p>
                     </div>
                     <Button variant="secondary" className="gap-2 px-6">
-                        Internal Workspace <ArrowRight size={16} />
+                        Firm Expertise <ArrowRight size={16} />
                     </Button>
                 </div>
 
@@ -28,11 +29,11 @@ export const HowItWorks: React.FC = () => {
                         <div className="relative w-72 h-[550px] bg-black rounded-[3rem] border-8 border-[#1a1a1a] shadow-2xl p-6 space-y-4">
                             <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
                             <div className="pt-10 flex flex-col gap-3">
-                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Partnership Review</div>
-                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Litigation Draft #042, Lagos Office</div>
-                                <div className="bg-white/20 rounded-2xl p-3 text-[11px] text-white font-medium self-end">Draft complete. Review for IP compliance?</div>
-                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70 line-clamp-3">Internal researcher flagged 3 case laws needing secondary audit before Lagos filing deadline.</div>
-                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Done! I&apos;ve logged the flags...</div>
+                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Strategic Review</div>
+                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Partnership Agreement, London Office</div>
+                                <div className="bg-white/20 rounded-2xl p-3 text-[11px] text-white font-medium self-end">Review complete. Finalizing advisory for the board.</div>
+                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70 line-clamp-3">The recent advisory on the board takeover has been finalized. We are clear for the Monday morning briefing.</div>
+                                <div className="bg-white/10 rounded-2xl p-3 text-[10px] text-white/70">Acknowledged. Briefing docs distributed.</div>
                             </div>
                             <div className="absolute bottom-10 left-6 right-6">
                                 <Button className="w-full h-10 text-xs rounded-xl">Continue</Button>
@@ -49,32 +50,32 @@ export const HowItWorks: React.FC = () => {
                             <div className="bg-white border border-dark/5 shadow-lg rounded-2xl p-6 flex items-center gap-4">
                                 <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">AO</div>
                                 <div className="flex-1">
-                                    <h4 className="font-bold text-sm">Lagos Merger</h4>
-                                    <p className="text-[10px] text-dark/40 font-bold uppercase tracking-widest">Active Audit</p>
+                                    <h4 className="font-bold text-sm">Corporate Advisory</h4>
+                                    <p className="text-[10px] text-dark/40 font-bold uppercase tracking-widest">Active Partner Review</p>
                                 </div>
                                 <MoreHorizontal size={16} className="text-dark/20" />
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <div className="flex-grow h-px bg-dark/5 italic text-[10px] text-dark/20 flex items-center justify-center">syncing internal data</div>
+                                <div className="flex-grow h-px bg-dark/5 italic text-[10px] text-dark/20 flex items-center justify-center">reviewing case files</div>
                             </div>
 
                             <div className="space-y-3">
                                 <div className="flex items-center gap-3">
                                     <div className="w-3 h-3 rounded-full bg-green-500" />
-                                    <span className="text-xs font-medium">verify IP compliance</span>
+                                    <span className="text-xs font-medium">Finalize litigation brief</span>
                                 </div>
                                 <div className="flex items-center gap-3 ml-6 opacity-40">
                                     <div className="w-3 h-3 rounded-full border border-dark/20" />
-                                    <span className="text-xs font-medium">review litigation brief</span>
+                                    <span className="text-xs font-medium">Review partnership agreement</span>
                                 </div>
                             </div>
 
                             <div className="bg-[#F9FAFB] border border-dark/5 rounded-2xl p-6 flex items-center gap-4 translate-x-12 opacity-80 scale-95">
-                                <div className="w-10 h-10 bg-dark/5 rounded-full flex items-center justify-center text-dark/40 font-bold">LR</div>
+                                <div className="w-10 h-10 bg-dark/5 rounded-full flex items-center justify-center text-dark/40 font-bold">PR</div>
                                 <div className="flex-1">
-                                    <h4 className="font-bold text-sm">Legal Research</h4>
-                                    <p className="text-[10px] text-dark/40 font-bold uppercase tracking-widest">Status: Secondary Audit</p>
+                                    <h4 className="font-bold text-sm">Partner Referral</h4>
+                                    <p className="text-[10px] text-dark/40 font-bold uppercase tracking-widest">Status: Board Review</p>
                                 </div>
                             </div>
                         </div>

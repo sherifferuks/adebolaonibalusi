@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
                     className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md"
                 >
                     <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">Next-Generation Corporate Law</span>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">Corporate Law & Litigation</span>
                 </motion.div>
 
                 {/* Main Heading */}
@@ -31,11 +31,11 @@ export const Hero: React.FC = () => {
                     className="space-y-6"
                 >
                     <h1 className="text-5xl md:text-8xl font-serif text-white leading-[1.05] tracking-tight max-w-4xl mx-auto">
-                        Corporate Excellence <br />
-                        <span className="italic">at the Speed of Light</span>
+                        Unwavering <br />
+                        <span className="italic">Legal Authority</span>
                     </h1>
                     <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto font-medium leading-relaxed">
-                        A premium legal firm leveraging internal AI automation to deliver unmatched research depth and operational speed for high-stakes corporate matters.
+                        A premier legal firm dedicated to high-stakes corporate matters, providing sophisticated counsel and strategic litigation for global institutions.
                     </p>
                 </motion.div>
 
@@ -50,8 +50,8 @@ export const Hero: React.FC = () => {
                         Consult with AO & Co <ArrowRight size={20} />
                     </Button>
                     <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/30 italic">
-                        {/* Research-Backed Litigation & Advisory */}
-                        Premium Internal Automation
+                        {/* Strategic Advisory & Global Litigation */}
+                        Corporate Advisory Excellence
                     </div>
                 </motion.div>
 

@@ -8,13 +8,13 @@ const founders = [
     {
         name: 'Adebola Onibalusi',
         role: 'Managing Partner',
-        description: 'Specializing in corporate strategy and technical search within international legal frameworks.',
+        description: 'Specializing in corporate strategy and high-stakes litigation within international legal frameworks.',
         image: '/team/adebola.jpg' // Placeholder intended
     },
     {
         name: 'Olumide Onibalusi', // Assuming the last name matches the firm
         role: 'Senior Partner',
-        description: 'Lead of litigation and research automation, blending legal expertise with operational technology.',
+        description: 'Lead of global litigation and corporate advisory, blending legal expertise with strategic foresight.',
         image: '/team/olumide.jpg'
     }
 ];
@@ -33,7 +33,7 @@ export default function TeamPage() {
                         <span className="italic">AO & Co.</span>
                     </h1>
                     <p className="text-xl text-white/50 leading-relaxed font-medium">
-                        We are a team of lawyers, researchers, and technologists dedicated to reinventing legal operations for the modern age.
+                        We are a team of lawyers and legal experts dedicated to providing exceptional counsel for the modern enterprise.
                     </p>
                 </div>
 
@@ -75,8 +75,8 @@ export default function TeamPage() {
                 {/* Join the Team CTA */}
                 <div className="bg-white rounded-[3rem] p-16 md:p-32 text-center space-y-12 text-dark">
                     <h2 className="text-4xl md:text-7xl font-serif leading-tight tracking-tight">
-                        Build the future <br />
-                        of legal with us
+                        Join our elite <br />
+                        legal team
                     </h2>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <Button variant="primary" size="lg" className="h-16 px-10 gap-3 bg-dark text-white rounded-full">

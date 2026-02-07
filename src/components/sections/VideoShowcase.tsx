@@ -6,23 +6,23 @@ import { ArrowRight, Box, Search, FileText, Database } from 'lucide-react';
 
 const detailedFeatures = [
     {
-        title: 'Case Management',
-        description: 'We organize contacts, corporate filing stages, and complex litigation internally with zero administrative latency.',
+        title: 'Strategic Advisory',
+        description: 'We provide comprehensive guidance on corporate governance, structural mergers, and international legal compliance.',
         icon: <Box size={20} className="text-dark/40" />
     },
     {
-        title: 'Instant Research',
-        description: 'Our team has instantaneous access to critical legal documents, allowing for deeper research in minutes, not days.',
+        title: 'Rigorous Diligence',
+        description: 'Our team performs deep-dive research into case law and regulatory frameworks to ensure every strategic move is bulletproof.',
         icon: <Search size={20} className="text-dark/40" />
     },
     {
-        title: 'Document Automation',
-        description: 'We automate the creation of routine legal notes and data entries, ensuring human error is virtually eliminated.',
+        title: 'Precise Drafting',
+        description: 'We draft complex corporate agreements and litigation briefs with the technical precision required for global markets.',
         icon: <FileText size={20} className="text-dark/40" />
     },
     {
-        title: 'Data Accuracy',
-        description: 'Our internal sync ensures that every task and data point is up to date, supporting every stage of the legal cycle.',
+        title: 'Result Certainty',
+        description: 'Every advisory note and litigation strategy is vetted for absolute adherence to local and international legal standards.',
         icon: <Database size={20} className="text-dark/40" />
     }
 ];
@@ -35,11 +35,11 @@ export const VideoShowcase: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <h2 className="text-4xl md:text-6xl font-serif leading-tight">
                         The AO & Co <br />
-                        <span className="italic">Internal Edge</span>
+                        <span className="italic">Practice Legacy</span>
                     </h2>
                     <div className="space-y-6">
                         <p className="text-lg text-dark/50 font-medium leading-relaxed">
-                            Our attorneys leverage a proprietary internal infrastructure that automates routine filings and data management, allowing us to focus 100% on high-level strategy for our clients.
+                            Our firm is built on a century of combined legal expertise, providing the strategic foresight and rigorous counsel required for high-stakes corporate decisions.
                         </p>
                     </div>
                 </div>

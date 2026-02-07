@@ -7,7 +7,7 @@ import { Check } from 'lucide-react';
 const features = [
     'Comprehensive Legal Advisory',
     'Research-Backed Strategy',
-    'Unlimited Internal Automation Sync',
+    'In-depth Legal Research',
     'Global Corporate Compliance',
     'Dedicated Partner Access',
     'Transparent Fee Structure'
@@ -25,7 +25,7 @@ export const Pricing: React.FC = () => {
                             Elite Counsel. Clear Fees.
                         </h2>
                         <p className="text-lg text-white/40 font-medium max-w-md">
-                            We offer structured retainer plans designed to provide your business with the constant legal edge of an internal operations hub.
+                            We offer structured retainer plans designed to provide your business with the constant legal edge of an elite advisory team.
                         </p>
                     </div>
 

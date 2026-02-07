@@ -33,9 +33,9 @@ export const Testimonials: React.FC = () => {
 
                     {/* Right Side Callout */}
                     <div className="lg:col-span-2 bg-stone/10 backdrop-blur-md rounded-3xl p-10 border border-white/5 space-y-6">
-                        <h3 className="text-2xl font-serif font-bold">The Innovation Edge</h3>
+                        <h3 className="text-2xl font-serif font-bold">The Strategic Edge</h3>
                         <p className="text-stone text-lg leading-relaxed">
-                            We leverage proprietary legal-tech workflows to reduce processing times by up to 40% while maintaining absolute precision in every brief.
+                            We leverage rigorous legal research and strategic foresight to reduce case timelines while maintaining absolute precision in every brief.
                         </p>
                         <div className="pt-6 border-t border-white/10 flex items-center justify-between">
                             <span className="text-accent font-bold text-3xl">98%</span>

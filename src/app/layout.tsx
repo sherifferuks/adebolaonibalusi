@@ -17,7 +17,7 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   title: "AO & Co. | Corporate Law & Strategy",
-  description: "A premier corporate law firm leveraging sophisticated internal automation to deliver unmatched research depth and operational speed.",
+  description: "A premier corporate law firm providing sophisticated counsel and strategic litigation for global institutions and high-stakes corporate matters.",
 };
 
 export default function RootLayout({

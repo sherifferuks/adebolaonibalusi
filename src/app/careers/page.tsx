@@ -27,15 +27,15 @@ export default function CareersPage() {
                             <div className="flex gap-8">
                                 <div className="text-dark/20 font-serif text-4xl font-medium">01</div>
                                 <div className="space-y-3">
-                                    <h3 className="text-lg font-bold uppercase tracking-widest text-dark">Automated Workflow</h3>
-                                    <p className="text-dark/50 font-medium">We use proprietary internal AI to streamline research and expedite our hiring process—you get to work faster.</p>
+                                    <h3 className="text-lg font-bold uppercase tracking-widest text-dark">Expert Practice</h3>
+                                    <p className="text-dark/50 font-medium">We prioritize excellence in legal practice and strategic research—you get to work with the best.</p>
                                 </div>
                             </div>
                             <div className="flex gap-8">
                                 <div className="text-dark/20 font-serif text-4xl font-medium">02</div>
                                 <div className="space-y-3">
                                     <h3 className="text-lg font-bold uppercase tracking-widest text-dark">Global Excellence</h3>
-                                    <p className="text-dark/50 font-medium">Work on high-stakes international corporate disputes. Our tech handles the mundane; you handle the strategy.</p>
+                                    <p className="text-dark/50 font-medium">Work on high-stakes international corporate disputes. We focus on intellectual depth and strategic victory.</p>
                                 </div>
                             </div>
                         </div>
