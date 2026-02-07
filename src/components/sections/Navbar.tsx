@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
@@ -56,12 +55,9 @@ export const Navbar: React.FC = () => {
 
                     {/* Actions */}
                     <div className="flex items-center gap-4">
-                        <Link href="/contact" className="hidden lg:block text-[13px] font-medium text-white/70 hover:text-white transition-colors tracking-wide">
+                        <Link href="/contact" className="text-[13px] font-medium text-white/70 hover:text-white transition-colors tracking-wide">
                             Contact
                         </Link>
-                        <Button variant="primary" size="sm" className="hidden md:flex px-6 h-10 text-[13px]">
-                            Get started
-                        </Button>
                         <button
                             className="md:hidden text-white p-2"
                             aria-label="Toggle menu"
@@ -87,9 +83,6 @@ export const Navbar: React.FC = () => {
                                 {link.name}
                             </Link>
                         ))}
-                        <div className="pt-6 border-t border-white/10">
-                            <Button className="w-full h-12">Get started</Button>
-                        </div>
                     </div>
                 </div>
             )}
