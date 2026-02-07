@@ -235,7 +235,10 @@ function ShaderBackground() {
             >
                 <ShaderPlane />
             </Canvas>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20" />
+            {/* Darkened Overlays for Readability */}
+            <div className="pointer-events-none absolute inset-0 bg-black/40" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_70%)] opacity-60" />
         </div>
     );
 }
