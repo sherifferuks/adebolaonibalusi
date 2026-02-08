@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import NextImage from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { ArrowRight, Twitter, Linkedin, Mail } from 'lucide-react';
 
@@ -12,7 +13,13 @@ const founders = [
         image: '/team/adebola.jpg' // Placeholder intended
     },
     {
-        name: 'Olumide Onibalusi', // Assuming the last name matches the firm
+        name: 'Kemi Onibalusi',
+        role: 'Senior Partner',
+        description: 'Lead of corporate advisory and dispute resolution, bringing meticulous attention to complex regulatory matters.',
+        image: '/team/kemi.png'
+    },
+    {
+        name: 'Olumide Onibalusi',
         role: 'Senior Partner',
         description: 'Lead of global litigation and corporate advisory, blending legal expertise with strategic foresight.',
         image: '/team/olumide.jpg'
@@ -38,13 +45,25 @@ export default function TeamPage() {
                 </div>
 
                 {/* Team Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {founders.map((member) => (
                         <div key={member.name} className="group space-y-8 bg-surface border border-white/5 p-12 rounded-[3rem] hover:border-white/20 transition-all shadow-2xl">
                             <div className="aspect-[4/5] bg-dark/20 rounded-3xl overflow-hidden relative">
-                                {/* Placeholder for member image */}
-                                <div className="absolute inset-0 flex items-center justify-center text-white/5 font-serif text-6xl">AO</div>
-                                <div className="absolute inset-0 bg-hero-glow opacity-20" />
+                                {member.image && (
+                                    <NextImage
+                                        src={member.image}
+                                        alt={member.name}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                    />
+                                )}
+                                {/* Overlay to match brand aesthetic */}
+                                <div className="absolute inset-0 bg-black/10 mix-blend-multiply transition-opacity group-hover:opacity-0" />
+                                <div className="absolute inset-0 bg-hero-glow opacity-20 pointer-events-none" />
+                                {!member.image && (
+                                    <div className="absolute inset-0 flex items-center justify-center text-white/5 font-serif text-6xl">AO</div>
+                                )}
                             </div>
 
                             <div className="space-y-4">
