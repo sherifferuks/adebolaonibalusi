@@ -5,24 +5,48 @@ import NextImage from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { ArrowRight, Twitter, Linkedin, Mail } from 'lucide-react';
 
-const founders = [
+const teamMembers = [
     {
-        name: 'Adebola Onibalusi',
-        role: 'Managing Partner',
-        description: 'Specializing in corporate strategy and high-stakes litigation within international legal frameworks.',
-        image: null // No image provided yet
-    },
-    {
-        name: 'Kemi Onibalusi',
-        role: 'Senior Partner',
-        description: 'Lead of corporate advisory and dispute resolution, bringing meticulous attention to complex regulatory matters.',
-        image: '/team/kemi.png'
+        name: 'Femi Onibalusi',
+        role: 'Founding Partner',
+        description: 'The visionary architect of the firm, steering three decades of legal excellence and strategic growth.',
+        image: null
     },
     {
         name: 'Olumide Onibalusi',
         role: 'Senior Partner',
         description: 'Lead of global litigation and corporate advisory, blending legal expertise with strategic foresight.',
-        image: null // No image provided yet
+        image: null
+    },
+    {
+        name: 'Adebola Onibalusi',
+        role: 'Managing Partner',
+        description: 'Specializing in corporate strategy and high-stakes litigation within international legal frameworks.',
+        image: null
+    },
+    {
+        name: 'Senior Associate',
+        role: 'Senior Associate',
+        description: 'Providing sophisticated legal counsel and managing complex regulatory portfolios.',
+        image: null
+    },
+    {
+        name: 'Senior Associate',
+        role: 'Senior Associate',
+        description: 'Key driver of client success in commercial dispute resolution and corporate governance.',
+        image: null
+    },
+    {
+        name: 'Kemi Onibalusi',
+        role: 'Associate',
+        description: 'Meticulous legal practitioner focused on corporate advisory and innovative dispute resolution.',
+        image: '/team/kemi.png'
+    },
+    {
+        name: 'Associate',
+        role: 'Associate',
+        description: 'Supporting the firm\'s multi-disciplinary practice with rigorous research and strategic advocacy.',
+        image: null
     }
 ];
 
@@ -46,8 +70,8 @@ export default function TeamPage() {
 
                 {/* Team Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-                    {founders.map((member) => (
-                        <div key={member.name} className="group space-y-6 md:space-y-8 bg-surface border border-white/5 p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] hover:border-white/20 transition-all shadow-2xl">
+                    {teamMembers.map((member, index) => (
+                        <div key={`${member.name}-${index}`} className="group space-y-6 md:space-y-8 bg-surface border border-white/5 p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] hover:border-white/20 transition-all shadow-2xl">
                             <div className="aspect-[4/5] bg-dark/20 rounded-2xl md:rounded-3xl overflow-hidden relative">
                                 {member.image && (
                                     <NextImage
