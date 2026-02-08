@@ -13,18 +13,6 @@ const teamMembers = [
         image: null
     },
     {
-        name: 'Olumide Onibalusi',
-        role: 'Senior Partner',
-        description: 'Lead of global litigation and corporate advisory, blending legal expertise with strategic foresight.',
-        image: null
-    },
-    {
-        name: 'Adebola Onibalusi',
-        role: 'Managing Partner',
-        description: 'Specializing in corporate strategy and high-stakes litigation within international legal frameworks.',
-        image: null
-    },
-    {
         name: 'Senior Associate',
         role: 'Senior Associate',
         description: 'Providing sophisticated legal counsel and managing complex regulatory portfolios.',
