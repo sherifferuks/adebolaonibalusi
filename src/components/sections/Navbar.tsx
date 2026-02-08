@@ -6,9 +6,10 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-    { name: 'Expertise', href: '#features' },
+    { name: 'Expertise', href: '/#features' },
+    { name: 'About', href: '/about' },
     { name: 'Partners', href: '/team' },
-    { name: 'Insights', href: '#insights' },
+    { name: 'Insights', href: '/#insights' },
     { name: 'Careers', href: '/careers' },
 ];
 

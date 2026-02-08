@@ -14,7 +14,7 @@ const footerLinks = {
         { name: 'Legal Portal', href: '/portal/kanban' },
     ],
     Company: [
-        { name: 'About', href: '#' },
+        { name: 'About', href: '/about' },
         { name: 'Privacy Policy', href: '#' },
         { name: 'Terms', href: '#' },
     ],
