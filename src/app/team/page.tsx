@@ -31,10 +31,10 @@ const teamMembers = [
         image: '/team/kemi.png'
     },
     {
-        name: 'Associate',
+        name: 'Jachinma R. Onwubuariri',
         role: 'Associate',
         description: 'Supporting the firm\'s multi-disciplinary practice with rigorous research and strategic advocacy.',
-        image: null
+        image: '/team/jachinma.png'
     }
 ];
 
