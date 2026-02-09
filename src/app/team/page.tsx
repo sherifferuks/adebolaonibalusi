@@ -7,31 +7,31 @@ import { ArrowRight, Twitter, Linkedin, Mail } from 'lucide-react';
 
 const teamMembers = [
     {
-        name: 'Femi Onibalusi',
+        name: 'Femi Onibalusi, L.L.B.(Hons.), B.L., MCIArb.',
         role: 'Founding Partner',
         description: 'The visionary architect of the firm, steering three decades of legal excellence and strategic growth.',
         image: '/team/femi.png'
     },
     {
-        name: 'Senior Associate',
+        name: 'Afie Obarakpor, L.L.B.(Hons.), B.L.',
         role: 'Senior Associate',
         description: 'Providing sophisticated legal counsel and managing complex regulatory portfolios.',
         image: null
     },
     {
-        name: 'Senior Associate',
+        name: 'Temitayo Teslim-Shittu, L.L.B.(Hons.), B.L.',
         role: 'Senior Associate',
         description: 'Key driver of client success in commercial dispute resolution and corporate governance.',
         image: null
     },
     {
-        name: 'Kemi Onibalusi',
+        name: 'Kemi Onibalusi, L.L.B.(Hons.), B.L., MSc (Hons.)',
         role: 'Associate',
         description: 'Meticulous legal practitioner focused on corporate advisory and innovative dispute resolution.',
         image: '/team/kemi.png'
     },
     {
-        name: 'Jachinma R. Onwubuariri',
+        name: 'Jachinma R. Onwubuariri, L.L.B.(Hons.), B.L.',
         role: 'Associate',
         description: 'Supporting the firm\'s multi-disciplinary practice with rigorous research and strategic advocacy.',
         image: '/team/jachinma.png'
