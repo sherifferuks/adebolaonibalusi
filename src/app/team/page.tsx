@@ -10,7 +10,7 @@ const teamMembers = [
         name: 'Femi Onibalusi',
         role: 'Founding Partner',
         description: 'The visionary architect of the firm, steering three decades of legal excellence and strategic growth.',
-        image: null
+        image: '/team/femi.png'
     },
     {
         name: 'Senior Associate',
