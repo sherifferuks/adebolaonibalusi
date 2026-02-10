@@ -22,7 +22,7 @@ const teamMembers = [
         name: 'Temitayo Teslim-Shittu, L.L.B.(Hons.), B.L.',
         role: 'Senior Associate',
         description: 'Key driver of client success in commercial dispute resolution and corporate governance.',
-        image: null
+        image: '/team/temitayo.jpg'
     },
     {
         name: 'Kemi Onibalusi, L.L.B.(Hons.), B.L., MSc (Hons.)',
