@@ -382,6 +382,13 @@ export default function Hero({
                         padding="py-4"
                         spacing="gap-2"
                         autoPlayInterval={4000}
+                        logos={[
+                            "/logos/csl.png",
+                            "/logos/fcmb.png",
+                            "/logos/meta.png",
+                            "/logos/al.png",
+                            "/logos/cbn.png"
+                        ]}
                     />
                 </div>
             </div>

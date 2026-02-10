@@ -9,12 +9,34 @@ import {
 } from "@/components/ui/Carousel";
 import { TextRoll } from "./text-roll";
 
-export const AnimatedCarousel = ({
+interface AnimatedCarouselProps {
+    title?: string;
+    logoCount?: number;
+    autoPlay?: boolean;
+    autoPlayInterval?: number;
+    logos?: string[] | null;
+    containerClassName?: string;
+    titleClassName?: string;
+    carouselClassName?: string;
+    logoClassName?: string;
+    itemsPerViewMobile?: number;
+    itemsPerViewDesktop?: number;
+    spacing?: string;
+    padding?: string;
+    logoContainerWidth?: string;
+    logoContainerHeight?: string;
+    logoImageWidth?: string;
+    logoImageHeight?: string;
+    logoMaxWidth?: string;
+    logoMaxHeight?: string;
+}
+
+export const AnimatedCarousel: React.FC<AnimatedCarouselProps> = ({
     title = "Trusted by leading institutions",
     logoCount = 15,
     autoPlay = true,
     autoPlayInterval = 3000,
-    logos = null, // Array of image URLs
+    logos = null,
     containerClassName = "",
     titleClassName = "",
     carouselClassName = "",
@@ -23,7 +45,6 @@ export const AnimatedCarousel = ({
     itemsPerViewDesktop = 5,
     spacing = "gap-12",
     padding = "py-12",
-    // New logo size customization props
     logoContainerWidth = "w-40",
     logoContainerHeight = "h-20",
     logoImageWidth = "w-auto",
