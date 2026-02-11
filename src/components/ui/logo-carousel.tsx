@@ -98,11 +98,11 @@ export const AnimatedCarousel: React.FC<AnimatedCarouselProps> = ({
                             <CarouselContent>
                                 {logoItems.map((logo, index) => (
                                     <CarouselItem className={`basis-1/${itemsPerViewMobile} lg:basis-1/${itemsPerViewDesktop}`} key={index}>
-                                        <div className={`flex items-center justify-center p-2 opacity-50 hover:opacity-100 transition-opacity duration-500 ${logoContainerWidth} ${logoContainerHeight} ${logoClassName}`}>
+                                        <div className={`flex items-center justify-center p-2 transition-all duration-500 ${logoContainerWidth} ${logoContainerHeight} ${logoClassName}`}>
                                             <img
                                                 src={logo}
                                                 alt={`Logo ${index + 1}`}
-                                                className={`${logoImageSizeClasses} object-contain brightness-0 invert`}
+                                                className={`${logoImageSizeClasses} object-contain`}
                                             />
                                         </div>
                                     </CarouselItem>
