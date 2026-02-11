@@ -9,7 +9,7 @@ const teamMembers = [
     {
         name: 'Femi Onibalusi, L.L.B.(Hons.), B.L., MCIArb.',
         role: 'Founding Partner',
-        description: 'The visionary architect of the firm, steering three decades of legal excellence and strategic growth.',
+        description: 'The visionary architect of the firm, steering more than four decades of legal excellence, advocacy, and strategic growth.',
         image: '/team/femi.png'
     },
     {
@@ -21,7 +21,7 @@ const teamMembers = [
     {
         name: 'Temitayo Teslim-Shittu, L.L.B.(Hons.), B.L.',
         role: 'Senior Associate',
-        description: 'Key driver of client success in commercial dispute resolution and corporate governance.',
+        description: 'Key driver of client success in commercial dispute resolution, advocacy, and corporate governance.',
         image: '/team/temitayo.jpg'
     },
     {
@@ -49,7 +49,7 @@ export default function TeamPage() {
                     </div>
                     <h1 className="text-4xl md:text-6xl lg:text-8xl font-serif font-medium leading-[1.1] md:leading-[1.05] tracking-tight">
                         The minds behind <br />
-                        <span className="italic">AO & Co.</span>
+                        <span className="italic">Adebola, Onibalusi & Co.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-white/50 leading-relaxed font-medium">
                         We are a team of lawyers and legal experts dedicated to providing exceptional counsel for the modern enterprise.
