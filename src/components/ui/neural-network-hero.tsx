@@ -387,7 +387,12 @@ export default function Hero({
                             "/logos/fcmb.png",
                             "/logos/meta.png",
                             "/logos/al.png",
-                            "/logos/cbn.png"
+                            "/logos/cbn.png",
+                            "/logos/mc_consultants.png",
+                            "/logos/firstbank.png",
+                            "/logos/starchem.png",
+                            "/logos/tradelink.png",
+                            "/logos/harbinger.png"
                         ]}
                     />
                 </div>
