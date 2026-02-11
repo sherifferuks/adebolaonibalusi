@@ -383,16 +383,13 @@ export default function Hero({
                         spacing="gap-2"
                         autoPlayInterval={4000}
                         logos={[
+                            "/logos/cbn.png",
                             "/logos/csl.png",
                             "/logos/fcmb.png",
                             "/logos/meta.png",
-                            "/logos/al.png",
-                            "/logos/cbn.png",
-                            "/logos/mc_consultants.png",
-                            "/logos/firstbank.png",
+                            "/logos/axial.png",
                             "/logos/starchem.png",
-                            "/logos/tradelink.png",
-                            "/logos/harbinger.png"
+                            "/logos/firstbank.png"
                         ]}
                     />
                 </div>
