@@ -389,7 +389,12 @@ export default function Hero({
                             "/logos/meta.png",
                             "/logos/axial.png",
                             "/logos/starchem.png",
-                            "/logos/firstbank.png"
+                            "/logos/firstbank.png",
+                            "/logos/harbinger.png",
+                            "/logos/tradelink.png",
+                            "/logos/wema.png",
+                            "/logos/seplat.png",
+                            "/logos/mc_consultants.png"
                         ]}
                     />
                 </div>
