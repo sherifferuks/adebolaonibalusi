@@ -87,9 +87,9 @@ export default function AboutPage() {
             <section className="py-32 bg-zinc-950/30">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
                     <div className="lg:col-span-8">
-                        <div className="space-y-12 text-lg md:text-xl font-light text-white/70 leading-relaxed font-serif">
+                        <div className="space-y-6 md:space-y-8 text-white/70 text-lg md:text-xl leading-relaxed md:leading-loose max-w-2xl font-medium">
                             <p>
-                                Adebola, Onibalusi & Co. is a leading law firm established in 1987, with its principal office in Lagos, Nigeria. For over three decades, the Firm has provided high-quality legal services to corporate and private clients, distinguished by sound judgment, rigorous advocacy, and a deep understanding of Nigeria’s legal and regulatory environment.
+                                Adebola, Onibalusi & Co. is a leading law firm established in 1987, with its principal office in Lagos, Nigeria. For over four decades, the Firm has provided high-quality legal services to corporate and private clients, distinguished by sound judgment, rigorous advocacy, and a deep understanding of Nigeria’s legal and regulatory environment.
                             </p>
                             <p>
                                 Our practice combines strong litigation and appellate capability with comprehensive advisory services across commercial, regulatory, and compliance matters. We are recognised for delivering clear, practical, and strategic legal solutions that align with our clients’ commercial objectives.
