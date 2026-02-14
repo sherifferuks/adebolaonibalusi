@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 const footerLinks = {
     Firm: [
         { name: 'Expertise', href: '/#features' },
-        { name: 'Partners', href: '/team' },
+        { name: 'Team', href: '/team' },
         { name: 'Insights', href: '/#insights' },
         { name: 'Careers', href: '/careers' },
         { name: 'Legal Portal', href: '/portal/kanban' },
