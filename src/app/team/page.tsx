@@ -27,7 +27,7 @@ const teamMembers = [
     {
         name: 'Kemi Onibalusi, L.L.B.(Hons.), B.L., MSc (Hons.)',
         role: 'Associate',
-        description: 'Meticulous legal practitioner focused on corporate advisory and innovative dispute resolution.',
+        description: 'Nigerian-qualified and UK SRA foreign-registered lawyer specialising in corporate and commercial law. Focused on contract drafting, negotiation, and contract management, advising businesses on risk mitigation and regulatory compliance across local and cross-border transactions.',
         image: '/team/kemi.png'
     },
     {
