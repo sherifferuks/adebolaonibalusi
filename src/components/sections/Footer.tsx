@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
             <div className="max-w-7xl mx-auto px-6">
                 {/* Top Contact Bar */}
                 <div className="flex flex-wrap justify-between items-center gap-12 pb-24 border-b border-white/10">
-                    {['hello@ao-co.law', 'Twitter', 'Facebook', 'LinkedIn'].map((item) => (
+                    {['info@adebolaonibalusi.com', 'Twitter', 'Facebook', 'LinkedIn'].map((item) => (
                         <Link
                             key={item}
                             href="#"
