@@ -1,7 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Pricing } from "@/components/sections/Pricing";
+import { Newsletter } from "@/components/sections/Newsletter";
 import { VideoShowcase } from "@/components/sections/VideoShowcase";
 import { Insights } from "@/components/sections/Insights";
 
@@ -13,7 +13,7 @@ export default function Home() {
       <HowItWorks />
       <VideoShowcase />
       <Insights />
-      <Pricing />
+      <Newsletter />
     </main>
   );
 }
