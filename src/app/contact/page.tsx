@@ -44,7 +44,7 @@ export default function ContactPage() {
                                 </div>
                                 <div className="space-y-2">
                                     <h3 className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Visit Lagos</h3>
-                                    <p className="text-2xl font-serif font-medium">15 Adeniyi Jones Avenue, Ikeja</p>
+                                    <p className="text-2xl font-serif font-medium">Suite 11a, Ground floor, East Pavilion, Tafawa Balewa Square. Lagos Island. Lagos. Nigeria</p>
                                 </div>
                             </div>
 
