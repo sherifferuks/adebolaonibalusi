@@ -3,7 +3,7 @@
 import React from 'react';
 import NextImage from 'next/image';
 import { Button } from '@/components/ui/Button';
-import { ArrowRight, Twitter, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Instagram, Linkedin, Mail } from 'lucide-react';
 
 const teamMembers = [
     {
@@ -93,7 +93,7 @@ export default function TeamPage() {
                                     <Linkedin size={16} className="text-white/40 group-hover:text-white transition-colors" />
                                 </Button>
                                 <Button variant="ghost" size="sm" className="w-10 h-10 p-0 rounded-full border border-white/10">
-                                    <Twitter size={16} className="text-white/40 group-hover:text-white transition-colors" />
+                                    <Instagram size={16} className="text-white/40 group-hover:text-white transition-colors" />
                                 </Button>
                                 <Button variant="ghost" size="sm" className="w-10 h-10 p-0 rounded-full border border-white/10">
                                     <Mail size={16} className="text-white/40 group-hover:text-white transition-colors" />

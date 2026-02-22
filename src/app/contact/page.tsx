@@ -61,7 +61,7 @@ export default function ContactPage() {
 
                         <div className="pt-16 border-t border-dark/10">
                             <div className="flex items-center gap-12">
-                                {['Twitter', 'LinkedIn', 'Facebook'].map(social => (
+                                {['LinkedIn', 'Instagram'].map(social => (
                                     <a key={social} href="#" className="text-sm font-bold uppercase tracking-widest text-dark/40 hover:text-dark transition-colors">{social}</a>
                                 ))}
                             </div>
