@@ -54,7 +54,7 @@ export default function ContactPage() {
                                 </div>
                                 <div className="space-y-2">
                                     <h3 className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Visit London</h3>
-                                    <p className="text-2xl font-serif font-medium">Canary Wharf, London E14</p>
+                                    <p className="text-2xl font-serif font-medium">Goodluck Hope, London E14</p>
                                 </div>
                             </div>
                         </div>
