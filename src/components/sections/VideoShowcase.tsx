@@ -54,7 +54,7 @@ export const VideoShowcase: React.FC = () => {
                     </div>
                     <div className="absolute bottom-12 left-12">
                         <Button variant="outline" className="h-12 border-white/20 text-white gap-2 mt-4 backdrop-blur-md">
-                            Get to know AO & Co <ArrowRight size={16} />
+                            Get to know Adebola, Onibalusi & Co. <ArrowRight size={16} />
                         </Button>
                     </div>
                 </div>
