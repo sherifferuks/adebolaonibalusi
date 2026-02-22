@@ -48,7 +48,15 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-
+                            <div className="flex gap-8 group">
+                                <div className="w-12 h-12 rounded-2xl bg-dark/5 border border-dark/5 flex items-center justify-center group-hover:bg-dark group-hover:text-white transition-all">
+                                    <MapPin size={20} />
+                                </div>
+                                <div className="space-y-2">
+                                    <h3 className="text-[11px] font-bold uppercase tracking-widest text-dark/40">Visit London</h3>
+                                    <p className="text-2xl font-serif font-medium">Suite 13 Forest House, 8 Gainsborough Road, London, England, E11 1HT</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="pt-16 border-t border-dark/10">
