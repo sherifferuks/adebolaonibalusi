@@ -11,7 +11,7 @@ export const HeroSection: React.FC = () => {
             badgeText="Strategic Legal Advisory & Litigation"
             badgeLabel="AO & Co."
             ctaButtons={[
-                { text: "Consult with AO & Co", href: "/contact", primary: true },
+                { text: "Book a Consultation", href: "/contact", primary: true },
                 { text: "Our Expertise", href: "#features" }
             ]}
             microDetails={["Lagos & London Offices", "Global Enterprise Counsel", "Practice Excellence"]}

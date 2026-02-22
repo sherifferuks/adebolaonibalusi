@@ -74,7 +74,7 @@ export const VideoShowcase: React.FC = () => {
                     ))}
                     <div className="pt-8">
                         <Link href="/team" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-dark group border-b border-dark/10 pb-2">
-                            Meet the Partners <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                            Meet the Team <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
                 </div>
