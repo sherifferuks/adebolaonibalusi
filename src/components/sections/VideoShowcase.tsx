@@ -34,8 +34,8 @@ export const VideoShowcase: React.FC = () => {
                 {/* Header Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <h2 className="text-4xl md:text-6xl font-serif leading-tight">
-                        The AO & Co <br />
-                        <span className="italic">Practice Legacy</span>
+                        The Adebola, Onibalusi & Co. <br />
+                        <span className="italic">Practice Legacy.</span>
                     </h2>
                     <div className="space-y-6">
                         <p className="text-lg text-dark/50 font-medium leading-relaxed">
