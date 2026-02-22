@@ -16,7 +16,7 @@ const teamMembers = [
         name: 'Afie Obarakpor, L.L.B.(Hons.), B.L.',
         role: 'Senior Associate',
         description: 'Providing sophisticated legal counsel and managing complex regulatory portfolios.',
-        image: '/team/lawyers profile photo AO Afie.png'
+        image: '/team/afie.jpg'
     },
     {
         name: 'Temitayo Teslim-Shittu, L.L.B.(Hons.), B.L.',
