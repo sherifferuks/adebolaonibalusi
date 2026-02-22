@@ -9,7 +9,7 @@ export const HeroSection: React.FC = () => {
             title="Unwavering Legal Authority"
             description="A full-service legal institution providing sophisticated multi-disciplinary counsel and strategic litigation for global enterprises across diverse industries."
             badgeText="Strategic Legal Advisory & Litigation"
-            badgeLabel="AO & Co."
+            badgeLabel=""
             ctaButtons={[
                 { text: "Book a Consultation", href: "/contact", primary: true },
                 { text: "Our Expertise", href: "#features" }
