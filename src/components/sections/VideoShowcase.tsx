@@ -55,6 +55,7 @@ export const VideoShowcase: React.FC = () => {
                         controls
                         controlsList="nodownload"
                         preload="metadata"
+                        poster="/img/video-thumbnail.png"
                         src="/videos/ao-website-video-final2.mp4"
                     >
                         Your browser does not support the video tag.
