@@ -45,15 +45,19 @@ export const VideoShowcase: React.FC = () => {
                 </div>
 
                 {/* Video/Demo Mockup */}
-                <div className="relative aspect-video bg-[#0A0B10] rounded-[3rem] overflow-hidden shadow-2xl group cursor-pointer">
-                    <div className="absolute inset-0 bg-hero-glow opacity-40 group-hover:opacity-60 transition-opacity" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
-                            <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-dark border-b-[10px] border-b-transparent ml-1" />
-                        </div>
-                    </div>
-                    <div className="absolute bottom-12 left-12">
-                        <Button variant="outline" className="h-12 border-white/20 text-white gap-2 mt-4 backdrop-blur-md">
+                <div className="relative aspect-video bg-[#0A0B10] rounded-[3rem] overflow-hidden shadow-2xl group">
+                    <video
+                        className="w-full h-full object-cover"
+                        controls
+                        controlsList="nodownload"
+                        playsInline
+                        preload="metadata"
+                        src="/videos/ao-website-video.mp4"
+                    >
+                        Your browser does not support the video tag.
+                    </video>
+                    <div className="absolute top-8 left-8 pointer-events-none hidden md:block">
+                        <Button variant="outline" className="h-12 border-white/20 text-white gap-2 backdrop-blur-md">
                             Get to know Adebola, Onibalusi & Co. <ArrowRight size={16} />
                         </Button>
                     </div>
