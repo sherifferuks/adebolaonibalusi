@@ -48,11 +48,14 @@ export const VideoShowcase: React.FC = () => {
                 <div className="relative aspect-video bg-[#0A0B10] rounded-[3rem] overflow-hidden shadow-2xl group">
                     <video
                         className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         controls
                         controlsList="nodownload"
-                        playsInline
                         preload="metadata"
-                        src="/videos/ao-website-video.mp4"
+                        src="/videos/ao-website-video-final2.mp4"
                     >
                         Your browser does not support the video tag.
                     </video>
