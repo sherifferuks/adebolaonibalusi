@@ -1,50 +1,63 @@
 "use client";
 
-import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Search } from 'lucide-react';
 
 const insights = [
     {
+        slug: 'corporate-mergers',
         category: 'Corporate',
         title: 'Navigating the legal landscape of corporate mergers',
         excerpt: 'A comprehensive guide on the complexities of cross-border mergers and acquisitions in the current regulatory environment.',
         date: 'Jan 24, 2026',
-        readTime: '6 min read'
+        readTime: '6 min read',
+        image: '/img/insights/corporate-mergers.png'
     },
     {
+        slug: 'litigation-research',
         category: 'Litigation',
         title: 'Modern litigation: The evolving role of legal research',
         excerpt: 'How advanced research methodologies are redefining strategy and outcomes in high-stakes courtroom battles.',
         date: 'Jan 12, 2026',
-        readTime: '4 min read'
+        readTime: '4 min read',
+        image: '/img/insights/litigation-research.png'
     },
     {
+        slug: 'regulatory-filings',
         category: 'Governance',
         title: 'Regulatory frameworks in cross-border corporate filings',
         excerpt: 'Understanding the shifting compliance requirements for multinational enterprises operating in emerging markets.',
         date: 'Dec 28, 2025',
-        readTime: '8 min read'
+        readTime: '8 min read',
+        image: '/img/insights/regulatory-filings.png'
     },
     {
+        slug: 'institutional-trust',
         category: 'Strategic',
         title: 'The impact of institutional trust on legal outcomes',
         excerpt: 'Exploring why corporate reputation and institutional integrity are becoming decisive factors in legal precedents.',
         date: 'Dec 15, 2025',
-        readTime: '5 min read'
+        readTime: '5 min read',
+        image: '/img/insights/institutional-trust.png'
     },
     {
+        slug: 'structural-mergers',
         category: 'Corporate',
         title: 'Structural mergers and international legal compliance',
         excerpt: 'Best practices for ensuring seamless transition and compliance during complex structural reorganizations.',
         date: 'Dec 05, 2025',
-        readTime: '7 min read'
+        readTime: '7 min read',
+        image: '/img/insights/structural-mergers.png'
     },
     {
+        slug: 'digital-transformation',
         category: 'Legal Tech',
         title: 'Digital transformation in the modern legal practice',
         excerpt: 'How the AO & Co Practice Legacy is embracing technology to deliver sophisticated counsel more efficiently.',
         date: 'Nov 20, 2025',
-        readTime: '5 min read'
+        readTime: '5 min read',
+        image: '/img/insights/digital-transformation.png'
     }
 ];
 
@@ -93,11 +106,16 @@ export default function InsightsPage() {
                     {/* Insights Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
                         {insights.map((insight, idx) => (
-                            <div key={idx} className="group cursor-pointer">
+                            <Link key={idx} href={`/insights/${insight.slug}`} className="group cursor-pointer">
                                 <div className="space-y-8">
                                     <div className="aspect-[16/10] bg-dark/5 rounded-[2rem] overflow-hidden relative border border-dark/5">
-                                        <div className="absolute inset-0 bg-hero-glow opacity-0 group-hover:opacity-20 transition-all duration-700" />
-                                        <div className="absolute inset-0 flex items-center justify-center text-dark/5 italic font-serif text-4xl select-none group-hover:scale-110 transition-transform duration-700">Insight</div>
+                                        <Image
+                                            src={insight.image}
+                                            alt={insight.title}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                        />
+                                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-700" />
                                     </div>
 
                                     <div className="space-y-4">
@@ -117,7 +135,7 @@ export default function InsightsPage() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
 

@@ -2,23 +2,30 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const posts = [
     {
+        slug: 'corporate-mergers',
         category: 'Corporate',
         title: 'Navigating the legal landscape of corporate mergers',
-        date: 'Jan 24, 2026'
+        date: 'Jan 24, 2026',
+        image: '/img/insights/corporate-mergers.png'
     },
     {
+        slug: 'litigation-research',
         category: 'Litigation',
         title: 'Modern litigation: The evolving role of legal research',
-        date: 'Jan 12, 2026'
+        date: 'Jan 12, 2026',
+        image: '/img/insights/litigation-research.png'
     },
     {
+        slug: 'regulatory-filings',
         category: 'Governance',
         title: 'Regulatory frameworks in cross-border corporate filings',
-        date: 'Dec 28, 2025'
+        date: 'Dec 28, 2025',
+        image: '/img/insights/regulatory-filings.png'
     }
 ];
 
@@ -40,12 +47,19 @@ export const Insights: React.FC = () => {
                     </Link>
                 </div>
 
+
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {posts.map((post) => (
-                        <div key={post.title} className="group space-y-6 cursor-pointer">
+                        <Link key={post.title} href={`/insights/${post.slug}`} className="group space-y-6 cursor-pointer">
                             <div className="aspect-[16/9] bg-dark/5 rounded-3xl overflow-hidden relative border border-dark/5">
-                                <div className="absolute inset-0 bg-hero-glow opacity-0 group-hover:opacity-10 transition-opacity" />
-                                <div className="absolute inset-0 flex items-center justify-center text-dark/5 italic font-serif text-3xl">Insight</div>
+                                <Image
+                                    src={post.image}
+                                    alt={post.title}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-700" />
                             </div>
                             <div className="space-y-3">
                                 <div className="flex items-center gap-4">
@@ -57,7 +71,7 @@ export const Insights: React.FC = () => {
                                     {post.title}
                                 </h3>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
