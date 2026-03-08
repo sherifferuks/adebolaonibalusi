@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const posts = [
@@ -34,9 +35,9 @@ export const Insights: React.FC = () => {
                             Exploring the nuances of international law and corporate strategy.
                         </p>
                     </div>
-                    <a href="#" className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-dark group border-b border-dark/10 pb-2 mb-2">
+                    <Link href="/insights" className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-dark group border-b border-dark/10 pb-2 mb-2">
                         View all insights <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

@@ -9,7 +9,7 @@ const footerLinks = {
     Firm: [
         { name: 'Expertise', href: '/#features' },
         { name: 'Team', href: '/team' },
-        { name: 'Insights', href: '/#insights' },
+        { name: 'Insights', href: '/insights' },
         { name: 'Careers', href: '/careers' },
         { name: 'Legal Portal', href: '/portal/kanban' },
     ],
