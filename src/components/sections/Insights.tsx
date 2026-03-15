@@ -1,35 +1,13 @@
-"use client";
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-
-const posts = [
-    {
-        slug: 'corporate-mergers',
-        category: 'Corporate',
-        title: 'Navigating the legal landscape of corporate mergers',
-        date: 'Jan 24, 2026',
-        image: '/img/insights/corporate-mergers.png'
-    },
-    {
-        slug: 'litigation-research',
-        category: 'Litigation',
-        title: 'Modern litigation: The evolving role of legal research',
-        date: 'Jan 12, 2026',
-        image: '/img/insights/litigation-research.png'
-    },
-    {
-        slug: 'regulatory-filings',
-        category: 'Governance',
-        title: 'Regulatory frameworks in cross-border corporate filings',
-        date: 'Dec 28, 2025',
-        image: '/img/insights/regulatory-filings.png'
-    }
-];
+import { getAllInsights } from '@/lib/insights';
 
 export const Insights: React.FC = () => {
+    // Get all insights and take the top 3
+    const posts = getAllInsights().slice(0, 3);
+
     return (
         <section id="insights" className="py-32 bg-light text-dark border-t border-dark/5">
             <div className="max-w-7xl mx-auto px-6 space-y-24">
@@ -47,8 +25,6 @@ export const Insights: React.FC = () => {
                     </Link>
                 </div>
 
-
-
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {posts.map((post) => (
                         <Link key={post.title} href={`/insights/${post.slug}`} className="group space-y-6 cursor-pointer">
@@ -58,6 +34,7 @@ export const Insights: React.FC = () => {
                                     alt={post.title}
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-700" />
                             </div>
