@@ -18,7 +18,7 @@ export default function PortalLogin() {
       });
       
       if (res.ok) {
-        router.push('/portal/content-creation');
+        router.push('/portal');
         router.refresh();
       } else {
         setError('Incorrect password');
