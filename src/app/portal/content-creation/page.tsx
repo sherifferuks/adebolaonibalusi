@@ -7,6 +7,7 @@ interface ApprovalItem {
   id: number;
   type: string;
   data: any;
+  status: string;
   createdAt: string;
 }
 
