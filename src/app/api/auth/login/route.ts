@@ -4,8 +4,9 @@ export async function POST(request: Request) {
   try {
     const { password } = await request.json();
     
-    // Check against env variable
-    if (password === process.env.PORTAL_PASSWORD) {
+    // Check against env variable or fallback to new password
+    const validPassword = process.env.PORTAL_PASSWORD || 'KemiPamatee#1';
+    if (password === validPassword) {
       const response = NextResponse.json({ success: true });
       
       // Set an HTTP-only cookie that lasts for 7 days

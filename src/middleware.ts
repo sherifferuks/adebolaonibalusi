@@ -10,9 +10,10 @@ export function middleware(request: NextRequest) {
     }
 
     const authCookie = request.cookies.get('portal_auth');
+    const validPassword = process.env.PORTAL_PASSWORD || 'KemiPamatee#1';
     
     // Check if authenticated
-    if (!authCookie || authCookie.value !== process.env.PORTAL_PASSWORD) {
+    if (!authCookie || authCookie.value !== validPassword) {
       return NextResponse.redirect(new URL('/portal/login', request.url));
     }
   }
