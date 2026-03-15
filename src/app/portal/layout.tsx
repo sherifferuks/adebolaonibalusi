@@ -30,8 +30,12 @@ export default function PortalLayout({
           
           <div className="flex items-center gap-6">
             <Link href="/portal" className="flex items-center gap-3 group">
-              <div className="w-8 h-8 rounded-lg bg-brand-orange text-white flex items-center justify-center font-serif font-bold group-hover:scale-110 transition-transform duration-500">
-                AO
+              <div className="w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                <img 
+                  src="/logomark.png" 
+                  alt="AO Logomark" 
+                  className="w-full h-full object-contain brightness-100"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif font-medium text-base text-white leading-tight">
