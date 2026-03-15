@@ -1,35 +1,49 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { CheckCircle2, XCircle, Clock } from 'lucide-react';
 
+interface ApprovalItem {
+  id: number;
+  type: string;
+  data: any;
+  createdAt: string;
+}
+
 export default function ContentCreationPortal() {
-  const [approvals, setApprovals] = useState<any[]>([]);
+  const [approvals, setApprovals] = useState<ApprovalItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   useEffect(() => {
+    const fetchApprovals = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch('/api/approvals/dashboard');
+        if (res.ok) {
+          const json = await res.json();
+          setApprovals(json.data || []);
+        }
+      } catch (error) {
+        console.error('Failed to load approvals', error);
+      }
+      setLoading(false);
+    };
+
     fetchApprovals();
   }, []);
 
-  const fetchApprovals = async () => {
-    setLoading(true);
-    try {
+  const handleAction = async (id: number, action: 'approve' | 'reject') => {
+    // Optimistic UI update
+    setApprovals(prev => prev.filter(app => app.id !== id));
+    
+    // Function to re-fetch on failure
+    const refreshData = async () => {
       const res = await fetch('/api/approvals/dashboard');
       if (res.ok) {
         const json = await res.json();
         setApprovals(json.data || []);
       }
-    } catch (err) {
-      console.error('Failed to load approvals', err);
-    }
-    setLoading(false);
-  };
-
-  const handleAction = async (id: number, action: 'approve' | 'reject') => {
-    // Optimistic UI update
-    setApprovals(prev => prev.filter(app => app.id !== id));
+    };
     
     try {
       await fetch('/api/approvals/dashboard', {
@@ -37,75 +51,98 @@ export default function ContentCreationPortal() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, action })
       });
-    } catch (err) {
-      console.error('Failed to resolve approval', err);
+    } catch (error) {
+      console.error('Failed to resolve approval', error);
       // Revert on failure
-      fetchApprovals();
+      refreshData();
     }
   };
 
-  if (loading) return <div className="p-12 text-center text-gray-500">Loading pending tasks...</div>;
+  if (loading) return (
+    <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
+      <div className="w-12 h-12 border-2 border-brand-orange/20 border-t-brand-orange rounded-full animate-spin" />
+      <p className="text-white/40 font-light tracking-widest uppercase text-xs">Synchronizing Nodes...</p>
+    </div>
+  );
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <h1 className="text-3xl font-serif text-brand-orange mb-8 pb-4 border-b border-gray-200">
-        Content Approvals Portal
-      </h1>
+    <div className="max-w-4xl mx-auto space-y-12 animate-fade-in px-4">
+      <div className="relative">
+        <div className="absolute -left-4 top-0 w-1 h-full bg-brand-orange rounded-full opacity-60" />
+        <h1 className="text-4xl font-serif text-white mb-2 tracking-tight">Content Approvals</h1>
+        <p className="text-white/50 text-base font-light tracking-wide lg:max-w-2xl">
+          Review and authorize AI-generated content before deployment to production channels.
+        </p>
+      </div>
 
       {approvals.length === 0 ? (
-        <div className="bg-gray-50 rounded-xl p-12 text-center text-gray-500">
-          <CheckCircle2 className="w-12 h-12 mx-auto mb-4 text-green-500 opacity-50" />
-          <p>No pending approvals. You are all caught up!</p>
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] p-16 text-center group">
+          <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
+            <CheckCircle2 className="w-10 h-10 text-green-500 animate-pulse" />
+          </div>
+          <h3 className="text-xl font-serif text-white mb-2">Workspace Clear</h3>
+          <p className="text-white/40 font-light tracking-wide">All pending content has been processed. You are all caught up!</p>
         </div>
       ) : (
-        <div className="space-y-8">
+        <div className="space-y-10">
           {approvals.map((app) => (
-            <div key={app.id} className="bg-white border text-black border-gray-200 rounded-xl overflow-hidden shadow-sm">
-              <div className="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <span className="bg-brand-orange text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">
-                    {app.type}
-                  </span>
-                  <span className="text-sm text-gray-500 flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    {new Date(app.createdAt).toLocaleDateString()}
-                  </span>
+            <div key={app.id} className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-white/20 shadow-2xl">
+              {/* Card Header */}
+              <div className="bg-white/[0.03] px-8 py-5 border-b border-white/10 flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <div className="px-3 py-1 rounded-md bg-brand-orange/10 border border-brand-orange/20">
+                    <span className="text-brand-orange text-[10px] font-bold uppercase tracking-[0.2em]">
+                      {app.type}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 text-[11px] text-white/30 font-medium tracking-tight uppercase">
+                    <Clock className="w-3 h-3" />
+                    Pending Verification Since {new Date(app.createdAt).toLocaleDateString()}
+                  </div>
                 </div>
               </div>
               
-              <div className="p-6">
+              {/* Card Body */}
+              <div className="p-8 space-y-8">
                 {/* Topics Review Specifics */}
                 {app.type === 'topics' && app.data?.output && (
-                  <div className="prose prose-sm max-w-none prose-orange text-black">
-                    <div dangerouslySetInnerHTML={{ __html: app.data.output.replace(/\\n/g, '<br/>') }} />
+                  <div className="prose prose-invert max-w-none prose-orange">
+                    <div className="bg-black/20 rounded-2xl p-6 border border-white/5 text-white/80 leading-relaxed font-light" 
+                         dangerouslySetInnerHTML={{ __html: app.data.output.replace(/\\n/g, '<br/>') }} />
                   </div>
                 )}
 
                 {/* Full Content Review Specifics */}
                 {app.type === 'content' && app.data && (
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">Blog Title</h3>
-                      <p className="text-lg font-serif">{app.data.blog_title}</p>
+                  <div className="space-y-8">
+                    <div className="relative">
+                      <h3 className="text-[10px] font-bold text-white/20 uppercase tracking-[0.25em] mb-3">Institutional Blog Title</h3>
+                      <p className="text-2xl font-serif text-white leading-tight tracking-tight">{app.data.blog_title}</p>
                     </div>
                     
                     <div>
-                      <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">Generated Blog Article</h3>
-                      <div className="bg-gray-50 p-4 rounded-lg text-sm font-mono text-black overflow-y-auto max-h-[300px]">
-                        {app.data.blog_content?.substring(0, 1000)}...
+                      <h3 className="text-[10px] font-bold text-white/20 uppercase tracking-[0.25em] mb-3">Manuscript Preview</h3>
+                      <div className="bg-black/40 p-6 rounded-2xl border border-white/10 text-sm font-light text-white/70 leading-relaxed overflow-y-auto max-h-[350px] scrollbar-thin scrollbar-thumb-white/10">
+                        {app.data.blog_content}
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6">
-                       <div>
-                        <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">LinkedIn Post</h3>
-                        <div className="bg-blue-50 text-blue-900 p-4 rounded-lg text-sm whitespace-pre-wrap">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                       <div className="space-y-3">
+                        <div className="flex items-center gap-2 text-[10px] font-bold text-[#0077B5] uppercase tracking-[0.25em]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#0077B5]" />
+                          LinkedIn Intelligence
+                        </div>
+                        <div className="bg-[#0077B5]/5 border border-[#0077B5]/10 p-5 rounded-2xl text-[13px] text-white/60 leading-relaxed whitespace-pre-wrap font-light tracking-wide min-h-[140px]">
                           {app.data.linkedin_content}
                         </div>
                       </div>
-                      <div>
-                        <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">Instagram Caption</h3>
-                        <div className="bg-pink-50 text-pink-900 p-4 rounded-lg text-sm whitespace-pre-wrap">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2 text-[10px] font-bold text-[#E4405F] uppercase tracking-[0.25em]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#E4405F]" />
+                          Instagram Narrative
+                        </div>
+                        <div className="bg-[#E4405F]/5 border border-[#E4405F]/10 p-5 rounded-2xl text-[13px] text-white/60 leading-relaxed whitespace-pre-wrap font-light tracking-wide min-h-[140px]">
                           {app.data.instagram_caption}
                         </div>
                       </div>
@@ -114,20 +151,21 @@ export default function ContentCreationPortal() {
                 )}
               </div>
 
-              <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end gap-3">
+              {/* Card Footer */}
+              <div className="px-8 py-6 bg-white/[0.03] border-t border-white/10 flex flex-col sm:flex-row justify-end gap-4">
                  <button 
                   onClick={() => handleAction(app.id, 'reject')}
-                  className="px-4 py-2 text-red-600 hover:bg-red-50 rounded-md font-medium text-sm flex items-center gap-2 transition-colors"
+                  className="px-6 py-3 text-white/40 hover:text-red-500 hover:bg-red-500/10 rounded-xl font-semibold text-[11px] uppercase tracking-[0.15em] flex items-center justify-center gap-2 transition-all duration-300 active:scale-95"
                 >
-                  <XCircle className="w-5 h-5" />
-                  Reject
+                  <XCircle className="w-4 h-4" />
+                  Discard Content
                 </button>
                 <button 
                   onClick={() => handleAction(app.id, 'approve')}
-                  className="px-6 py-2 bg-brand-orange text-white hover:bg-brand-orange/90 rounded-md font-medium text-sm flex items-center gap-2 transition-colors shadow-sm cursor-pointer"
+                  className="px-8 py-3 bg-white text-black hover:bg-brand-orange hover:text-white rounded-xl font-bold text-[11px] uppercase tracking-[0.15em] flex items-center justify-center gap-2 transition-all duration-500 shadow-xl active:scale-95 group/btn"
                 >
-                  <CheckCircle2 className="w-5 h-5" />
-                  Approve & Resume Workflow
+                  <CheckCircle2 className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                  Authorize & Publish
                 </button>
               </div>
             </div>
@@ -137,3 +175,4 @@ export default function ContentCreationPortal() {
     </div>
   );
 }
+

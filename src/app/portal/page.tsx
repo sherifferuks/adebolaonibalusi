@@ -34,13 +34,17 @@ export default function PortalHub() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8">
-       <div>
-        <h1 className="text-3xl font-serif text-gray-900 mb-2">Welcome Back</h1>
-        <p className="text-gray-500 text-lg">Select an internal application to continue.</p>
+    <div className="max-w-5xl mx-auto space-y-12 animate-fade-in">
+       <div className="relative">
+        <div className="absolute -left-4 top-0 w-1 h-full bg-brand-orange rounded-full opacity-60" />
+        <h1 className="text-4xl font-serif text-white mb-3 tracking-tight">Master Command</h1>
+        <p className="text-white/50 text-lg font-light tracking-wide lg:max-w-2xl">
+          Welcome to the central intelligence hub of Adebola, Onibalusi & Co. 
+          Select a node to begin operations.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {apps.map((app) => {
           const Icon = app.icon;
           const isActive = app.status === 'Active';
@@ -49,25 +53,43 @@ export default function PortalHub() {
             <Link 
               key={app.id} 
               href={isActive ? app.href : '#'}
-              className={`relative flex flex-col h-full bg-white rounded-2xl border ${isActive ? 'border-gray-200 hover:border-brand-orange hover:shadow-md cursor-pointer' : 'border-dashed border-gray-200 opacity-60 cursor-default'} transition-all p-6 group`}
+              className={`group relative flex flex-col h-full bg-white/5 backdrop-blur-xl rounded-[2rem] border transition-all duration-500 p-8 overflow-hidden ${
+                isActive 
+                ? 'border-white/10 hover:border-brand-orange/50 hover:bg-white/[0.08] cursor-pointer' 
+                : 'border-dashed border-white/5 opacity-40 cursor-default'
+              }`}
             >
-              <div className="flex justify-between items-start mb-6">
-                <div className={`p-3 rounded-xl ${app.color}`}>
+              {/* Card accent glow */}
+              <div className="absolute -right-10 -top-10 w-32 h-32 bg-brand-orange/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              <div className="flex justify-between items-start mb-8 relative z-10">
+                <div className={`p-4 rounded-2xl bg-white/5 border border-white/10 ${isActive ? 'text-brand-orange' : 'text-white/20'}`}>
                   <Icon className="w-6 h-6" />
                 </div>
-                <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${isActive ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                <div className={`text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-lg border backdrop-blur-md ${
+                  isActive 
+                  ? 'border-brand-orange/20 bg-brand-orange/5 text-brand-orange' 
+                  : 'border-white/5 bg-white/5 text-white/30'
+                }`}>
                   {app.status}
-                </span>
+                </div>
               </div>
               
-              <h3 className="text-xl font-serif text-gray-900 mb-2">{app.name}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed flex-grow">
-                {app.description}
-              </p>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-serif text-white mb-3 group-hover:text-brand-orange transition-colors duration-300">
+                  {app.name}
+                </h3>
+                <p className="text-[13px] text-white/40 leading-relaxed font-light tracking-wide min-h-[4rem]">
+                  {app.description}
+                </p>
+              </div>
               
               {isActive && (
-                <div className="mt-6 flex items-center text-sm font-semibold text-brand-orange group-hover:gap-1.5 gap-1 transition-all">
-                  Launch App <ArrowRight className="w-4 h-4" />
+                <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-semibold text-white/30 group-hover:text-white transition-all duration-500 uppercase tracking-[0.2em] relative z-10">
+                  <span>Enter Interface</span>
+                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all duration-500">
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
               )}
             </Link>
@@ -77,3 +99,4 @@ export default function PortalHub() {
     </div>
   );
 }
+
