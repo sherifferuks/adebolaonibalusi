@@ -4,6 +4,11 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   // Only protect the /portal routes
   if (request.nextUrl.pathname.startsWith('/portal')) {
+    // DO NOT redirect if we are already on the login page
+    if (request.nextUrl.pathname === '/portal/login') {
+      return NextResponse.next();
+    }
+
     const authCookie = request.cookies.get('portal_auth');
     
     // Check if authenticated
